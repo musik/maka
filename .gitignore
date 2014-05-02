@@ -1,0 +1,14 @@
+#*.sql
+*.sql.gz
+session
+/file
+/file/cache/
+/file/script/
+/file/md5/
+/file/sphinx/
+/about
+/config.inc.php
+/announce/*.html
+/index.html
+/config/deploy.rb
+/*.xml
