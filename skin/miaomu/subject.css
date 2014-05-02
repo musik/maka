@@ -1,0 +1,106 @@
+div.metas{
+
+}
+.metas p{
+  margin: 0;
+  line-height: 2em;
+}
+
+.metas p strong{
+  font-weight: 500;
+  color: #666;
+}
+.metas p a:link,.metas p a:visited{
+  color: #06c;
+}
+h2{
+  color: #080;
+  font-weight: 500;
+  border-left: 2px solid #080;
+  text-indent: 10px;
+  background: #f8f8f8;
+  line-height: 1.8em;
+}
+h3{
+  font-weight: 500;
+}
+h3 a:link{
+  color: #06c;
+}
+h3 a:visited{
+  color: #036;
+}
+
+h3.inline{
+  display: inline;
+}
+ul.sells{
+  /*border-top: 1px solid #eee;*/
+}
+ul.sells h3 a:hover{
+  color: #ccc;
+}
+ul.sells li{
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+  line-height: 2em;
+  height: 2em;
+  overflow: hidden;
+}
+#subject-photo{
+ margin: 5px 0;
+ height: 160px;
+ width: 280px;
+ overflow: hidden;
+}
+
+#subject-info{width:100%;height:58px;margin-bottom:2em;position:relative;margin-top: 1.5em;}
+#subject-info .pic{float:left;margin-right:12px;}
+#subject-info .pic a{float: left;border: 1px solid #eee;}
+#subject-info .details{float:left;padding-top:2px}
+#subject-info a.colbutt{position:absolute;left:640px;top:35px;letter-spacing:0}
+#subject-info p.att{position:absolute;left:640px;top:38px;margin:0;background:url(http://img3.douban.com/f/shire/3611ec626fed94c0db6f13472c8171d5a76daca3/pics/allright-small.gif) no-repeat left center;padding-left:20px}
+/*#subject-info .details ul li{display:inline;margin-right:1em}*/
+/*#subject-info .details ul li.last{margin:0}*/
+#subject-info h1{font-size:;25px;margin: 0;padding:0 0 8px 0}
+
+.infobox{
+  background: #eee;
+  padding: 10px;
+}
+.tool{
+  border: 1px solid #eee;
+  border-width: 0;
+}
+.list{
+  margin: 0;
+}
+.list-first table{
+  border-top: 1px dotted #ccc;
+}
+ul.snav{
+  /*margin-left: -8px;*/
+}
+.snav li{
+  float: left;
+}
+.snav li a{
+  float: left;
+  padding: 0 8px;
+  line-height: 1.8em;
+}
+.snav li.first a{
+  padding-left: 0;
+}
+.snav li.active a{
+  background: #06f;
+  color: #fff;
+}
+/* catlist */
+.childlist {padding:10px 10px 10px 15px;line-height:24px;}
+.childlist li {font-size:14px;height:28px;line-height:28px;background:url('image/li_dot.gif') no-repeat 5px 12px;padding:0 10px 0 12px;overflow:hidden;}
+.catlist {padding:15px 15px 15px 20px;line-height:24px;}
+.catlist_li {font-size:14px;height:28px;line-height:28px;background:url('image/li_dot.gif') no-repeat 5px 12px;padding:0 10px 0 12px;overflow:hidden;}
+.catlist_sp {background:#FFFFFF url('image/dot.gif') repeat-x 0 center;}
+.subtitle {padding:5px 15px 5px 15px;margin:10px 20px 10px 20px;line-height:24px;font-size:12px;border:#EEEEEE 1px solid;background:#FAFAFA;}
+.subtitle li {width:50%;height:24px;overflow:hidden;float:left;}

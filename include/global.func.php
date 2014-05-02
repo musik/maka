@@ -289,7 +289,7 @@ function get_cookie($var) {
 function get_table($moduleid, $data = 0) {
 	global $DT_PRE, $MODULE;
 	$module = $MODULE[$moduleid]['module'];
-	$C = array('article', 'brand', 'buy', 'down', 'info', 'photo', 'sell', 'video');
+  $C = array('article', 'brand', 'buy', 'down', 'info', 'photo', 'sell', 'video','subject');
 	if($data) {
 		return in_array($module, $C) ? $DT_PRE.$module.'_data_'.$moduleid : $DT_PRE.$module.'_data';
 	} else {
@@ -910,7 +910,9 @@ function userurl($username, $qstring = '', $domain = '') {
 				}
 			}
 		} else if($DT['rewrite']) {
-			$URL = DT_PATH.'com/'.$username.'/';
+        if(empty($DT['company_url_prefix']))
+          $DT['company_url_prefix'] = 'c-';
+        $URL = DT_PATH.$DT['company_url_prefix'].$username.'/';
 			if($qstring) {
 				parse_str($qstring, $q);
 				if(isset($q['file'])) {
@@ -1014,6 +1016,7 @@ function itemurl($item, $page = 0) {
 	$file_ext = $DT['file_ext'];
 	$index = $DT['index'];
 	$itemid = $item['itemid'];
+	$slug = $item['slug'];
 	$title = file_vname($item['title']);
 	$addtime = $item['addtime'];
 	$catid = $item['catid'];

@@ -4,7 +4,7 @@
 	This is NOT a freeware, use is subject to license.txt
 */
 defined('IN_DESTOON') or exit('Access Denied');
-$mid or $mid = 1;
+$mid = isset($mid) ? intval($mid) : 1;
 $CATEGORY = cache_read('category-'.$mid.'.php');
 $MOD = cache_read('module-'.$mid.'.php');
 $NUM = count($CATEGORY);
@@ -16,6 +16,7 @@ $menus = array (
     array('添加分类', '?file='.$file.'&action=add&mid='.$mid.'&parentid='.$parentid),
     array('管理分类', '?file='.$file.'&mid='.$mid),
     array('分类复制', '?file='.$file.'&action=copy&mid='.$mid),
+    array('分类导入', '?file='.$file.'&action=import&mid='.$mid),
     array('批量索引', '?file='.$file.'&action=letters&mid='.$mid),
     array('更新地址', '?file='.$file.'&action=url&mid='.$mid),
     array('更新统计', '?file='.$file.'&action=count&mid='.$mid),
@@ -136,6 +137,36 @@ switch($action) {
 			include tpl('category_copy');
 		}
 	break;
+  //muzik hacked:分类导入
+  case 'import':
+    function comma_split($str){
+      return preg_split('/\s+/ ',$str);
+    }
+    if($submit){
+			if(!$save) $db->query("DELETE FROM {$table} WHERE moduleid=$mid");
+			$cats = array();
+      $tfile = DT_ROOT.'/file/cats.csv';
+      $txt = file_get_contents($tfile);
+      $lines = explode("\n",$txt);
+      $lines =array_map('comma_split',$lines);
+      foreach($lines as $line){
+        if($line[0] == '关键词') continue;
+        $cats[$line[0]] = array(
+          'catname' => $line[0],
+          'listorder' => $line[8]
+        );
+      }
+      foreach($cats as &$cat){
+        if(!$cat['catname']) continue;
+        $do->add($cat);
+      }
+			$do->repair();
+			msg('分类导入成功', '?file='.$file.'&action=url&mid='.$mid.'&forward='.urlencode('?file='.$file.'&mid='.$mid));
+    
+		} else {
+			include tpl('category_import');
+    }
+  break;
 	case 'count':
 		require DT_ROOT.'/include/module.func.php';
 		$tb =get_table($mid);
@@ -285,8 +316,13 @@ class category {
 		} else {
 			$arrparentid = 0;
 		}
-		$catdir = $category['catdir'] ? $category['catdir'] : $this->catid;
-		$this->db->query("UPDATE {$this->table} SET listorder=$this->catid,catdir='$catdir',arrparentid='$arrparentid' WHERE catid=$this->catid");
+    //muzik hacked:批量添加分类时自动生成拼音slug和首字母
+		$catdir = $category['catdir'] ? $category['catdir'] : $this->get_catdir($this->get_letter($category['catname'],false));
+		$listorder = $category['listorder'] ? $category['listorder'] : $this->catid;
+    $letter = substr($catdir,0,1);
+		$this->db->query("UPDATE {$this->table} SET listorder=$listorder,catdir='$catdir',letter='$letter',arrparentid='$arrparentid' WHERE catid=$this->catid");
+		//$catdir = $category['catdir'] ? $category['catdir'] : $this->catid;
+		//$this->db->query("UPDATE {$this->table} SET listorder=$this->catid,catdir='$catdir',arrparentid='$arrparentid' WHERE catid=$this->catid");
 		return true;
 	}
 
@@ -413,22 +449,21 @@ class category {
 	}
 
 	function get_catdir($catdir, $catid = 0) {
-		if(preg_match("/^[0-9a-z_\-\/]+$/i", $catdir)) {
-			$condition = "catdir='$catdir' AND moduleid='$this->moduleid'";
-			if($catid) $condition .= " AND catid!=$catid";
-			$r = $this->db->get_one("SELECT catid FROM {$this->table} WHERE $condition");
-			if($r) {
-				return '';
-			} else {
-				return $catdir;
-			}
-		} else {
-			return '';
-		}
+    $base = $catdir;
+    $i = 0;
+    do{
+      $condition = "catdir='$catdir' AND moduleid='$this->moduleid'";
+      if($catid) $condition .= " AND catid!=$catid";
+      $r = $this->db->get_one("SELECT catid FROM {$this->table} WHERE $condition");
+      if(!$r) break;
+      $i += 1;
+      $catdir = "$base{$i}";
+    }while(1);
+    return $catdir;
 	}
 
 	function get_letter($catname, $letter = true) {
-		return $letter ? strtolower(substr(gb2py($catname), 0, 1)) : str_replace(' ', '', gb2py($catname));
+		return $letter ? strtolower(substr(to_pinyin($catname), 0, 1)) : str_replace(' ', '', to_pinyin($catname));
 	}
 
 	function cache($data = array()) {

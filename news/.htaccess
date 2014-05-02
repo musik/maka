@@ -1,0 +1,8 @@
+# Destoon B2B Rewrite Rules
+ErrorDocument 404 /404.php
+RewriteEngine On
+#RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^i([0-9]+)-?([0-9]+)?/$ show.php?itemid=$1&page=$2 [L]
+RewriteRule ^([A-za-z0-9\-]+)/([0-9]+)?/?$ list.php?catdir=$1&page=$2

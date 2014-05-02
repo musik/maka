@@ -1,0 +1,22 @@
+# Destoon B2B Rewrite Rules
+#ErrorDocument 404 /404.php
+RewriteEngine On
+RewriteBase /
+#RewriteRule ^(.*)\.(asp|aspx|asa|asax|dll|jsp|cgi|fcgi|pl)(.*)$ /404.php
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^([A-za-z0-9_\-]+)\.html$ list.php?catdir=$1
+#RewriteRule ^(.*)-htm-(.*)$ $1.php?$2
+#RewriteRule ^show-([0-9]+)([\-])?([0-9]+)?\.html$ show.php?itemid=$1&page=$3
+#RewriteRule ^list-([0-9]+)([\-])?([0-9]+)?\.html$ list.php?catid=$1&page=$3
+#RewriteRule ^([A-za-z0-9_\-]+)-c([0-9]+)-([0-9]+)\.html$ list.php?catid=$2&catdir=$1&page=$3
+#RewriteRule ^([0-9]+)/([0-9]+)?([/])?$ show.php?itemid=$1&page=$2
+#RewriteRule ^list/([0-9]+)/([0-9]+)?([/])?$ list.php?catid=$1&page=$2
+#RewriteRule ^([0-9]+)(-[0-9]+)?/$ show.php?itemid=$1&page=$2
+#RewriteRule ^([a-z]+)/(.*)\.shtml$ $1/index.php?rewrite=$2
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^([A-za-z0-9_\-]+)/$ show.php?slug=$1
+#RewriteRule ^([A-za-z0-9_\-]+)/(sell|news)$ show.php?slug=$1&module=$2
+RewriteRule ^([a-z]+)$ $1/ [L,R=301]
+RewriteRule ^([a-z]+)/$ index.php?smod=$1 [L,QSA]

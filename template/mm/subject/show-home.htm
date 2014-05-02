@@ -1,0 +1,21 @@
+<h2>{$title}简介</h2>
+{if $CP}{template 'property', 'chip'}{/if}
+<div class="content" id="content">{$content}</div>
+{if $SCATS[5]}
+<h2>{$title}的供应信息</h2>
+<!--{tag("catid=".$SCATS[5]['catid']."&moduleid=5&condition=status=3&pagesize=10&target=_blank&template=list-cat&cols=5&datetype=3")}-->
+{/if}
+{if $SCATS[21]}
+<h2>{$title}的相关资讯</h2>
+<!--{tag("catid=".$SCATS[21]['catid']."&moduleid=21&condition=status=3&pagesize=10&target=_blank&template=list-cat&cols=5&datetype=3")}-->
+{/if}
+<center>
+  [ <a href="{$MOD[linkurl]}search.php" rel="nofollow">{$MOD[name]}搜索</a> ]&nbsp;
+  [ <a href="javascript:SendFav();">加入收藏</a> ]&nbsp;
+  [ <a href="javascript:SendPage();">告诉好友</a> ]&nbsp;
+  [ <a href="javascript:Print();">打印本文</a> ]&nbsp;
+  [ <a href="javascript:window.close()">关闭窗口</a> ]
+</center>
+<br/>
+{template 'comment', 'chip'}
+<br/>

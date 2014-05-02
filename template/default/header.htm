@@ -46,8 +46,8 @@
 {/if}
 {php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
 <script type="text/javascript">
-{if $head_mobile && $EXT[wap_goto]}
-GoMobile('{$head_mobile}');
+{if $moduleid==1 && $EXT[wap_enable] && $EXT[wap_goto]}
+GoMobile('{$EXT[wap_url]}');
 {/if}
 var searchid = {$searchid};
 {if $itemid && $DT[anticopy]}

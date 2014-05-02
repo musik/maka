@@ -20,7 +20,7 @@ class price {
 		if(!$post['price']) return $this->_($L['msg_price']);
 		if(!$post['username'] && !$post['company']) return $this->_($L['msg_company']);
 		if(!$post['username'] && !$post['areaid']) return $this->_($L['msg_area']);
-		if(($P['minprice'] && $post['price'] < $P['minprice']) || ($P['maxprice'] && $post['price'] > $P['maxprice'])) return $this->_($L['msg_bad']);
+		if(($P['minprice'] && $post['price'] < $P['minprice']) || ($P['maxprice'] != '' && $post['price'] > $P['maxprice'])) return $this->_($L['msg_bad']);
 		return true;
 	}
 

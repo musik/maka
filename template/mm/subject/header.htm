@@ -1,0 +1,22 @@
+{if $subject}
+<div class="m">
+<div id="subject-info">
+  <div class="pic">
+    <a href="{$subject[linkurl]}">
+      <img src="{$subject[album]}" height=52 width="52" id="mid_pic"/>
+    </a>
+  </div>
+  <div class="details">
+    <h1>
+      {$subject[title]}
+    </h1>
+    <ul class="snav">
+      <li class="{if $action=='home'}active{else}first{/if}"><a href="{$subject[linkurl]}">{$subject[title]}的主页</a></li>
+      {loop $SMODS $k $m}
+      <li{if $action==$m[module]} class="active"{/if}><a href="{$subject[linkpre]}{$m[moduledir]}/">{$m[name]}</a></li>
+      {/loop}
+    </ul>
+  </div>
+</div>
+</div>
+{/if}

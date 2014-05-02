@@ -19,6 +19,9 @@ function fields_update($post_fields, $table, $itemid, $keyname = 'itemid', $fd =
 		}
 	}
 	$sql = substr($sql, 1);
+  if(function_exists('keywords_update_sql')){
+    $sql .= keywords_update_sql($post_fields,$table,$itemid,$keyname,$FD);
+  }
 	if($sql) $db->query("UPDATE {$table} SET $sql WHERE `$keyname`=$itemid");
 }
 
@@ -46,11 +49,11 @@ function fields_check($post_fields, $fd = array()) {
 		} else if($v['input_limit'] == 'is_email') {
 			if(!is_email($value)) message(lang($L['fields_valid'], array($v['title'])));
 		} else if(is_numeric($v['input_limit'])) {
-			$length = $v['html'] == 'checkbox' ? count($value) : word_count($value);
+      $length = $v['html'] == 'checkbox' ? count($value) : word_count($value);
 			if($length < $v['input_limit']) message(lang($L['fields_less'], array($v['title'], $v['input_limit'])));
 		} else {
 			if(preg_match("/^([0-9]{1,})\-([0-9]{1,})$/", $v['input_limit'], $m)) {			
-				$length = $v['html'] == 'checkbox' ? count($value) : word_count($value);
+        $length = $v['html'] == 'checkbox' ? count($value) : word_count($value);
 				if($m[1] && $length < $m[1]) message(lang($L['fields_less'], array($v['title'], $m[1])));
 				if($m[2] && $length > $m[2]) message(lang($L['fields_more'], array($v['title'], $m[2])));
 			} else {
