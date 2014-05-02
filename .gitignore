@@ -11,4 +11,5 @@ session
 /announce/*.html
 /index.html
 /config/deploy.rb
+/config/nginx.conf
 /*.xml
