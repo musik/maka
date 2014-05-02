@@ -1,3 +1,3 @@
 <?php
-$moduleid = 24;
+$moduleid = 23;
 ?>
