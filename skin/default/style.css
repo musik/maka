@@ -275,3 +275,11 @@ ul.attrs li strong {
   width: 100px;
   text-indent: 5px;
 font-weight: 500; }
+
+.subnav{
+  background: #f8f8f8;
+  border: 1px solid #eee;
+  border-width: 0 1px 1px;
+  padding: 0px 10px;
+  line-height: 24px;
+}
