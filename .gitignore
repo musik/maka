@@ -13,3 +13,4 @@ session
 /config/deploy.rb
 /config/nginx.conf
 /*.xml
+/upyun/config.inc.php

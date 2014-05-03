@@ -1,0 +1,76 @@
+{template 'header'}
+<script type="text/javascript">var module_id= {$moduleid},item_id={$itemid},content_id='content',img_max_width={$MOD[max_width]};</script>
+<div class="m">
+		<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')} &raquo; </div>
+      <h1 class="title_{$module}" id="title">{$title}</h1>
+<div class="m_l f_l">
+	<div class="left_boxx">		
+		<div class="info_main">		
+			<table width="100%">
+			<td width="180" valign="top">
+				<div id="mid_pos"></div>
+				<div id="subject-photo" onclick="PAlbum(Dd('mid_pic'));">
+				<img src="{$albums[0]}" height=160 width="160" id="mid_pic"/><span id="zoomer"></span>
+				</div>
+				<div class="b5"></div>
+				<div>
+				</div>
+			</td>
+			<td width="10"> </td>
+			<td valign="top">
+			<div id="big_div" style="display:none;"><img src="" id="big_pic"/></div>
+      <?php 
+      if(!isset($FD))
+        $FD = cache_read('fields-'.substr($table, strlen($DT_PRE)).'.php');
+        ?>
+			<div class="metas">
+      {loop $FD $i $cf}
+      <?php if($cf['name'] == 'slug') continue;$val = $$cf['name'];?>
+      <p><strong>{$cf[title]}</strong>:
+      {subject_display_field($val,$cf)}
+      </p>
+      {/loop}
+			<p><strong>浏览次数</strong>:<span id="hits">{$hits}</span></p>
+			<p><strong>指数</strong>:<span id="vol">{$listorder}</span></p>
+			</div>
+			</td>
+			</tr>
+			</table>
+		</div>
+		<div class="b10">&nbsp;</div>
+    <h2>{$title}简介</h2>
+		{if $CP}{template 'property', 'chip'}{/if}
+		<div class="content" id="content">{$content}</div>
+    <?php if (array_key_exists(5,$MODULE)){?>
+    <h2>{$title}的供应信息</h2>
+    {template 'sells.show','subject'}
+    <?php } ?>
+    <?php if (array_key_exists(21,$MODULE)){?>
+    <h2>{$title}的相关资讯</h2>
+    {template 'news.show','subject'}
+    <?php } ?>
+		<center>
+		[ <a href="{$MOD[linkurl]}search.php" rel="nofollow">{$MOD[name]}搜索</a> ]&nbsp;
+		[ <a href="javascript:SendFav();">加入收藏</a> ]&nbsp;
+		[ <a href="javascript:SendPage();">告诉好友</a> ]&nbsp;
+		[ <a href="javascript:Print();">打印本文</a> ]&nbsp;
+		[ <a href="javascript:window.close()">关闭窗口</a> ]
+		</center>
+		<br/>
+		{template 'comment', 'chip'}
+		<br/>
+	</div>
+</div>
+<div class="m_n f_l">&nbsp;</div>
+	<div class="m_r f_l">
+		{if $MOD[page_srelate]}
+		<div class="box_head"><div><strong>同类{$MOD[name]}</strong></div></div>
+		<div class="box_body f_gray li_dot">
+		<!--{tag("moduleid=$moduleid&condition=status=3&catid=$catid&areaid=$cityid&pagesize=".$MOD[page_srelate]."&order=addtime desc")}-->
+		</div>
+		{/if}
+	</div>
+</div>
+<script type="text/javascript" src="{DT_STATIC}file/script/album.js"></script>
+{if $content}<script type="text/javascript" src="{DT_STATIC}file/script/content.js"></script>{/if}
+{template 'footer'}
