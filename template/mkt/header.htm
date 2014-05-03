@@ -97,7 +97,7 @@ document.onselectstart=function(e){return false;};
 		<ul><li{if $moduleid<4} class="menuon"{/if}><a href="{$MODULE[1][linkurl]}"><span>首页</span></a></li>{loop $MODULE $m}{if $m[ismenu]}<li{if $m[moduleid]==$moduleid} class="menuon"{/if}><a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}><span{if $m[style]} style="color:{$m[style]};"{/if}>{$m[name]}</span></a></li>{/if}{/loop}</ul>
 	</div>
   <div class="subnav">
-	玛卡常识: <!--{tag("table=webpage&condition=item=2&areaid=$cityid&order=listorder desc&template=list-subnav")}-->
+	玛卡常识: <!--{tag("table=webpage&condition=item=maka&areaid=$cityid&order=listorder desc&template=list-subnav")}-->
   </div>
 </div>
 <div class="m b10">&nbsp;</div>
