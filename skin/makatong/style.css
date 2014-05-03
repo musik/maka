@@ -299,3 +299,14 @@ font-weight: 500; }
 .s-title h2 a{
   color: #444;
 }
+.s-box{
+  width: 330px;
+  min-height: 140px;
+}
+
+.s-box-r{
+  margin-left: 10px;
+}
+.s-box ul{
+  font-size: 14px;
+}
