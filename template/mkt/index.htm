@@ -50,7 +50,7 @@
 					{php $mid = 5;}
 					{php $child = get_maincat(0, $mid, 1);}
 					{loop $child $i $c}
-					{if $i<12 && $c[child]}
+					{if $i<12 }
 					{php $sub = get_maincat($c[catid], $mid, 1);}
 					<ul>
 					<li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank"><strong>{set_style($c[catname], $c[style])}</strong></a></li>
