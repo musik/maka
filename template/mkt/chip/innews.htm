@@ -17,13 +17,14 @@
     </div>
     {/loop}
   </div>
+  {php $rows = ceil(count($tags)/2);}
 
-  <div style="width:280px;" class="f_l">
+  <div class="m_r f_r">
     {if $DT[page_rank] && isset($MODULE[$mid])}
     <div class="ibox_head">
       <a href="{$MODULE[$mid][linkurl]}"><strong>点击排行</strong></a>
     </div>
-    <div class="rank_list"><!--{php $tags=tag("moduleid=$mid&condition=status=3 and addtime>$today_endtime-30*86400&areaid=$cityid&order=hits desc&pagesize=".$DT[page_rank]."&template=null");}-->			
+    <div class="rank_list"><!--{php $tags=tag("moduleid=$mid&condition=status=3 and addtime>$today_endtime-30*86400&areaid=$cityid&order=hits desc&pagesize=".$DT[page_rank] * $rows."&template=null");}-->			
       <ul>
         {loop $tags $t}
         <li><span class="f_r px11 f_gray">{$t[hits]}</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
