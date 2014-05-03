@@ -98,6 +98,15 @@
 </div>
 <div class="m b10">&nbsp;</div>
 
+			{if $DT[page_brand] && isset($MODULE[13])}
+<div class="m">
+  <div class="s-title">
+				<h2><a href="{$MODULE[13][linkurl]}">玛卡品牌</a></h2>
+  </div>
+			<div class="thumb"><!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_brand']."&order=addtime desc&width=120&height=60&cols=6&target=_blank&lazy=$lazy&template=thumb-brand")}--></div>
+</div>
+<div class="m b10">&nbsp;</div>
+			{/if}
 {php $mid=21;}
 {template 'innews', 'chip'}
 {php $mid=23;}
@@ -176,12 +185,6 @@
 		</div>
 
 		<div class="w290 f_r">
-			{if $DT[page_brand] && isset($MODULE[13])}
-			<div class="ibox_head">
-				<a href="{$MODULE[13][linkurl]}"><strong>品牌</strong></a>
-			</div>
-			<div class="thumb"><!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_brand']."&order=addtime desc&width=120&height=40&cols=2&target=_blank&lazy=$lazy&template=thumb-brand")}--></div>
-			{/if}
 			{if $DT[page_down] && isset($MODULE[15])}
 			<div class="ibox_head">
 				<a href="{$MODULE[15][linkurl]}"><strong>资料</strong></a>
