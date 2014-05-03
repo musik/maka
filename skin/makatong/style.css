@@ -283,3 +283,19 @@ font-weight: 500; }
   padding: 0px 10px;
   line-height: 24px;
 }
+.s-title{
+  height: 40px; 
+  line-height: 40px;
+}
+.s-title h2{
+  font-size: 24px;
+  line-height: 40px;
+  margin: 0;
+  font-weight: normal;
+  font-family: "微软雅黑";
+  border-bottom: 2px solid #ddd;
+  text-indent: 10px;
+}
+.s-title h2 a{
+  color: #444;
+}

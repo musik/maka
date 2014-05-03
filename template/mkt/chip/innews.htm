@@ -1,12 +1,13 @@
-	<div class="box_head">
-    <a href="{$MODULE[$mid][linkurl]}"><strong>{$MODULE[$mid][name]}</strong></a>
-		<span class="f_gray">	
+<div class="m">
+	<div class="s-title">
+		<span class="f_r f_gray">	
 			<!--{php $tags=tag("table=category&condition=moduleid=$mid and parentid=0&pagesize=10&order=listorder,catid&template=null");}-->
 			{loop $tags $i $t}{if $i} &nbsp;|&nbsp; {/if}<a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}">{$t[catname]}</a>{/loop}
 		</span>
+    <h2><a href="{$MODULE[$mid][linkurl]}">{$MODULE[$mid][name]}</a></h2>
 	</div>
 
-	<div class="box_body">
+	<div class="box_bodyx">
 
 		<div style="margin:10px 0 0 0px;" class="m_l f_l">
 			{if $DT[page_newsh] && isset($MODULE[$mid])}
@@ -51,5 +52,7 @@
 
 		<div class="c_b"></div>
 	</div>
+</div>
 
+ 
 <div class="m b10"></div>
