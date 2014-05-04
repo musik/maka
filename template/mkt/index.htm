@@ -114,20 +114,16 @@
 {php $mid=24;}
 {template 'innews', 'chip'}
 <div class="m">
-	<div class="box_head">
+  <div class="s-title">
 		<span class="f_r f_gray">	
 			 {if isset($MODULE[10])}<a href="{$MODULE[10][linkurl]}">{$MODULE[10][name]}</a> &nbsp;|&nbsp;{/if}
 			 {if isset($MODULE[8])}<a href="{$MODULE[8][linkurl]}">{$MODULE[8][name]}</a> &nbsp;|&nbsp;{/if}
-			 {if isset($MODULE[13])}<a href="{$MODULE[13][linkurl]}">{$MODULE[13][name]}</a> &nbsp;|&nbsp;{/if}
 			 {if isset($MODULE[9])}<a href="{$MODULE[9][linkurl]}">{$MODULE[9][name]}</a> &nbsp;|&nbsp;{/if}
-			 {if isset($MODULE[15])}<a href="{$MODULE[15][linkurl]}">{$MODULE[15][name]}</a> &nbsp;|&nbsp;{/if}
-			 {if $EXT[ad_enable]}<a href="{$EXT[ad_url]}">广告</a> &nbsp;|&nbsp;{/if}
-			 <a href="{$EXT[spread_url]}">推广</a>
+			 {if isset($MODULE[15])}<a href="{$MODULE[15][linkurl]}">{$MODULE[15][name]}</a>{/if}
 		</span>
-		<a href="{$MODULE[21][linkurl]}"><strong>企业服务</strong></a>
-	</div>
+				<h2><a href="{$MODULE[10][linkurl]}">玛卡问答</a></h2>
+  </div>
 
-	<div class="box_body">
 		<div class="m_l f_l">
 			<div>
 				<div style="margin:0 15px 0 10px;" class="m_r f_l">
@@ -166,22 +162,6 @@
 			</div>			
 			<div class="b10">&nbsp;</div>
 
-			{if $DT[page_job] && isset($MODULE[9])}
-			<div class="job_head">
-			<ul>
-				<li class="job_2" id="job_t_1" onmouseover="Tb(1, 2, 'job', 'job');"><a href="{$MODULE[9][linkurl]}"><span>招聘</span></a></li>
-				<li class="job_1" id="job_t_2" onmouseover="Tb(2, 2, 'job', 'job');"><a href="{$MODULE[9][linkurl]}"><span>求职</span></a></li>
-			</ul>
-			</div>
-			<div class="job_body">
-				<div id="job_c_1" style="display:">
-				<!--{tag("moduleid=9&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_job']."&length=30&order=edittime desc&template=table-job")}-->
-				</div>
-				<div id="job_c_2" style="display:none">
-				<!--{tag("moduleid=9&table=resume&condition=status=3 and open=3 and level>0&areaid=$cityid&showcat=1&pagesize=".$DT['page_job']."&order=edittime desc&template=table-resume")}-->
-				</div>
-			</div>
-			{/if}		
 		</div>
 
 		<div class="w290 f_r">
@@ -191,7 +171,6 @@
 			</div>
 			<div class="down"><!--{tag("moduleid=15&condition=status=3 and level>0&pagesize=".$DT[page_down]."&length=40&target=_blank&order=addtime desc&template=list-down")}--></div>
 			{/if}
-		</div>
 
 		<div class="c_b"></div>
 	</div>
