@@ -37,7 +37,7 @@ class AutoPost{
       }
       $var = $this->cl->add($data);
       if($post_fields) fields_update($post_fields, $this->cl->table, $this->cl->itemid);
-      $this->check_quote($data);
+      //$this->check_quote($data);
       echo "done";
     }else{
       echo "error:";
@@ -112,15 +112,35 @@ class AutoPost{
     //pebug($data,1);
     return $data;
   }
-  function check_exists($data){
+  function check_exists($data,$key='fromurl'){
     global $db;
-    $e = $db->get_one("select itemid from {$this->cl->table} where fromurl = '$data[fromurl]'");
+    $condition = $key . "= '".$data[$key]."'";
+    $e = $db->get_one("select itemid from {$this->cl->table} where $condition");
     if($e)
-      exit("error: url已存在");
+      exit("error: $key 已存在");
   }
 
+  function parse_title($data){
+    $vars = array(
+      '类型','品牌','加工产品种类','加工贸易形式',
+      '材质','品名','品种'
+    );
+    if(preg_match_all('/<p>(.+?)：(.+?)<\/p>/',$data['content'],$matches,PREG_SET_ORDER)){
+      foreach($matches as $m){
+        if(in_array($m[1],$vars)){
+          $ns[] = $m[2];
+        }
+      }
+      $title = implode('',$ns) . $data['areaname2'] . $data['title'];
+      $title = str_replace(' ','',$title);
+      $title = mb_substr($title,0,30,'UTF-8');
+      return $title;
+    }
+    return $data['title'];
+  }
   function parse_sell($data){
-    $this->check_exists($data);
+    $data['title'] = $this->parse_title($data);
+    $this->check_exists($data,'title');
     global $db;
     $keys = explode(',','style,brand,tag,keyword,pptword,thumb,thumb1,thumb2,email,msn,qq,skype,linkurl,filepath,notete');
     foreach($keys as $k){
@@ -130,14 +150,14 @@ class AutoPost{
     $data['status'] = 3;
     if(!$data['areaid'] && $data['areaname'])
       $data['areaid'] = $this->detect_area($data["areaname2"] . " ". $data["areaname"]);
-    if(!$data['catid'] && $data['q']){
+    if($data['q']){
       $cat = $db->get_one("select catid from {$db->pre}category where moduleid = $this->moduleid and catname = '{$data[q]}'");
       if($cat) $data['catid'] = $cat['catid'];
     }
-    //if($data['fromurl']){
-      //$post_fields['fromurl'] = $data['fromurl'];
-      //$data["post_fields"] = $post_fields;
-    //}
+    if($data['fromurl']){
+      $post_fields['fromurl'] = $data['fromurl'];
+      $data["post_fields"] = $post_fields;
+    }
     return $data; 
   }
   function detect_area($str){

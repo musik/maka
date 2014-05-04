@@ -28,8 +28,9 @@ case "new":
   break;
 case "cats":
   $cats = get_maincat(0,$moduleid);
+  //echo "cid|name|url|moduleid<br />";
   foreach($cats as $cat){
-    echo "$cat[catid]|$cat[catname]","<br />";
+    echo "$cat[catid]|$cat[catname]<br />";
   }
   break;
 case "rss":
@@ -48,9 +49,14 @@ case "rss":
     }
     break;
   default:
+    $pcat = $_GET['pcat'];
     foreach($cats as $cat){
-      $op .= "<item><title>{$cat[catname]}</title><link>http://s.1688.com/selloffer/offer_search.htm?keywords=".urlencode(iconv("UTF-8","GBK",$cat[catname].$_GET['suffix']))."</link></item>\n";
-      $links[] ="http://s.1688.com/selloffer/offer_search.htm?keywords=".urlencode(iconv("UTF-8","GBK",$cat[catname].$_GET['suffix'])) ;
+      if($cat['catname'] == '其它') continue;
+      $link ="http://s.1688.com/selloffer/offer_search.htm?keywords=".urlencode(iconv("UTF-8","GBK",$cat[catname].$_GET['suffix']));
+      if($pcat)
+        $link .= "&amp;categoryId=$pcat";
+      $op .= "<item><title>{$cat[catname]}</title><link>$link</link></item>\n";
+      $links[] =$link;
     }
     break;
   }
