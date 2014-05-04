@@ -132,7 +132,7 @@
 						<a href="{$MODULE[10][linkurl]}"><strong>知道</strong></a>
 					</div>
 					<div class="know">
-						<!--{php $tags=tag("moduleid=10&condition=status=3 and process>0 and credit>0&pagesize=".$DT[page_know]."&order=addtime desc&template=null");}-->
+						<!--{php $tags=tag("moduleid=10&condition=status=3&pagesize=".$DT[page_know]."&order=addtime desc&template=null");}-->
 						<ul>
 						{loop $tags $t}
 						<li><span class="f_r">{timetodate($t[addtime], 2)}</span><span class="know_credit">{$t[credit]}</span> <a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
