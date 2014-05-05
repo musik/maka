@@ -7,12 +7,21 @@
     <h2><a href="{$MODULE[$mid][linkurl]}">{$MODULE[$mid][name]}</a></h2>
   </div>
   <div class="m_l f_l">
+    {php $odd = count($tags)%2;}
     {loop $tags $i $t}
     {php $catid = $t[catid]}
-    <div class="s-box {if $i%2}s-box-r{/if} f_l">
+    <?php 
+    $num = $DT['page_news'];
+    if($odd && !$i ) {
+      $class = "s-box-tall";
+      $num = $DT['page_news'] * 2 + 1;
+    }
+    $j = ($odd && $i > 1) ?  $i+1 : $i;
+    ?>
+    <div class="s-box {$class} {if $j%2}s-box-r{/if} f_l">
       <h3><a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}">{$t[catname]}</a></h3>
       <div class="li_dot">
-        <!--{tag("moduleid=$mid&condition=status=3 and level>0&catid=$catid&pagesize=".$DT[page_news]."&order=addtime desc&target=_blank")}-->
+        <!--{tag("moduleid=$mid&condition=status=3 and level>0&catid=$catid&pagesize=$num&order=addtime desc&target=_blank")}-->
       </div>
     </div>
     {/loop}
