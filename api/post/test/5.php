@@ -17,4 +17,5 @@ $post = array (
   'address' => '福建-漳浦县 东南花都旁',
   'q' => '玛卡代工',
   'cached' => '2013-7-12',
+  'photo_url' => 'http://i03.c.aliimg.com/img/ibank/2014/601/987/1314789106_833967977.310&#120;310.jpg',
 );

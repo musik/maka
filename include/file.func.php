@@ -68,6 +68,9 @@ function file_copy($from, $to) {
 		if(DT_CHMOD) @chmod($to, DT_CHMOD);
 		return true;
 	} else {
+    $errors= error_get_last();
+    echo "COPY ERROR: ".$errors['type'];
+    echo "<br />\n".$errors['message'];
 		return false;
 	}
 }

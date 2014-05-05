@@ -138,9 +138,20 @@ class AutoPost{
     }
     return $data['title'];
   }
+  function parse_thumb($data){
+    if(!$data['thumb'] && $data['photo_url']){
+      global $_userid;
+      $_userid = 1;
+      $data['photo_url'] = html_entity_decode($data['photo_url']);
+      $data['thumb'] = save_remote("src=" . $data['photo_url']);
+      $data['thumb'] = substr($data['thumb'],4,strlen($data['thumb']));
+    }
+    return $data;
+  }
   function parse_sell($data){
     $data['title'] = $this->parse_title($data);
     $this->check_exists($data,'title');
+    $data = $this->parse_thumb($data);
     global $db;
     $keys = explode(',','style,brand,tag,keyword,pptword,thumb,thumb1,thumb2,email,msn,qq,skype,linkurl,filepath,notete');
     foreach($keys as $k){
