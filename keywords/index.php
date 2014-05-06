@@ -4,20 +4,20 @@ define('KYPATH', dirname(__FILE__));
 include KYPATH. '/functions.php';
 $filename = KYPATH.'/makaindex.csv';
 $tab = $_GET['tab'];
+$arr = parse_csv($filename);
 if($tab){
-  $arr = parse_csv($filename);
   $keys = array_shift($arr);
   if($tab !== '全部')
     $arr = filter_tab($arr,$tab);
 }else{
-  $arr0 = parse_csv($filename);
-  array_shift($arr0);
-  //$keywords = array_map('select_first',$arr0);
+  $arr = parse_csv($filename);
+  array_shift($arr);
   $keys = array('关键词','条数');
   foreach($tabs as $tab){
-    $arrt = $tab == '全部' ? $arr0 : filter_tab($arr0,$tab);
-    $arr[] = array($tab,count($arrt));  
+    $arrt = $tab == '全部' ? $arr : filter_tab($arr,$tab);
+    $kws[] = array($tab,count($arrt));  
   }
+  $arr = $kws;
 }
 ?>
 <html>
@@ -36,6 +36,8 @@ body{
 <a href="?tab=<?php echo $name?>"><?php echo $name?></a>
 <?php }?>
 </p>
-<?php if($arr){include(KYPATH.'/table.tpl.php');}?>
+<?php 
+include(KYPATH.'/'. ($kws ? 'tabs' : 'table') .'.tpl.php');
+?>
 </body>
 </html>
