@@ -22,6 +22,8 @@ if($tab){
 ?>
 <html>
 <head>
+<meta charset="utf-8">
+<title>玛卡关键词</title>
 <link rel="stylesheet" type="text/css" href="http://www.ndrc.ac.cn/assets/application.css"/>
 <style>
 body{
@@ -30,6 +32,9 @@ body{
 </style>
 </head>
 <body>
+<form methdo="GET">
+<input type="text" width=100% class="input-lg">
+</form>
 <p>
 <a href="?">首页</a>
 <?php foreach($tabs as $name){?>
