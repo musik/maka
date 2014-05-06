@@ -13,7 +13,7 @@ if($tab){
   $arr0 = parse_csv($filename);
   array_shift($arr0);
   //$keywords = array_map('select_first',$arr0);
-  $arr[] = array('关键词','条数');
+  $keys = array('关键词','条数');
   foreach($tabs as $tab){
     $arrt = $tab == '全部' ? $arr0 : filter_tab($arr0,$tab);
     $arr[] = array($tab,count($arrt));  
