@@ -155,6 +155,9 @@
 	display:block;
 	background-repeat:no-repeat
 }
+.floor-food-first-screen .mod-com-silde .a-img img{
+  margin: 20px 18px;
+}
 .floor-food-first-screen .mod-com-silde .description {
 	padding-top:20px
 }
