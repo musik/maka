@@ -1,0 +1,25 @@
+{php $arr =array(21=>'动态',23=>'技术',24=>'功效')}
+{loop $arr $mid $label}
+{php $cmod = $MODULE[$mid]}
+{php $ccats = get_maincat(0,$mid,1)}
+<div class="zone-cat zone-cat-first   zone-cat-xiuxianshipin zone-cat-selected2"
+  data-panel="float-cat-container-xiuxianshipin">
+  <div class="zone-wrap">
+    <div class="zone-header">
+      <h3 class="ms-yh">
+        <a href="{$MODULE[$mid][linkurl]}" >{$cmod[name]}</a>
+      </h3>
+      <span class="tag">
+        <i></i>{$label}
+      </span>
+    </div>
+    <div class="zone-content fd-clr">
+      <ul class="word5">
+					{loop $ccats $i $c}
+<li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a></li>
+          {/loop}
+      </ul>
+    </div>
+  </div>
+</div>
+{/loop}

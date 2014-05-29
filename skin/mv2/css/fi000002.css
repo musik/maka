@@ -697,18 +697,18 @@
 }
 .floor-fz-first-screen .mod-category .zone-cat .zone-content ul {
 	float:left;
-	width:56px;
+	/*width:56px;*/
 }
 .floor-fz-first-screen .mod-category .zone-cat .zone-content ul.word4 {
 	width:60px;
 }
 .floor-fz-first-screen .mod-category .zone-cat .zone-content ul li {
-	width:46px;
+	/*width:46px;*/
 	white-space:nowrap;
 	height:13px;
 	line-height:12px;
 	line-height:14px\9;
-	border-right:1px solid #6d5151;
+	/*border-right:1px solid #6d5151;*/
 	padding-left:9px;
 	margin-bottom:13px;
 	*margin-bottom:12px;
