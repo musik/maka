@@ -41,39 +41,38 @@
                     </div>
                     <div class="extra">
                       <div class="wrap">
-                        <div class="mod-trends" data-category-ids="1,2" data-ye-category-ids="1042703,104,106,10037,10041,1031791,1047204,1048224">
+                        <div class="mod-trends">
                           <div class="header">
                             <span class="year">
-                              2013
+                              {date("Y")}
                             </span>
                             <span class="month">
-                              12
+                              {date("m")}
                             </span>
                             <span class="day">
-                              28
+                              {date("d")}
                             </span>
                           </div>
                           <div class="content">
-                            <p class="cal-trends">
-                              今日新增产品
-                              <em class="num-add">
-                                0
-                              </em>
-                              件
-                            </p>
-                            <p class="cal-trends">
-                              总产品数
-                              <em class="num-total">
-                                0
-                              </em>
-                              件
-                            </p>
-                            <div class="ye-trade">
+			<div id="site_stats">
+			<ul>
+			<li>产品总数:<span>{php echo $db->count($DT_PRE.'sell_5', 'status=3', 1800);}</span></li>
+			<li>求购总数:<span>{php echo $db->count($DT_PRE.'buy_6', 'status=3', 1800);}</span></li>
+			<li>企业总数:<span>{php echo $db->count($DT_PRE.'company', '1', 1800);}</span></li>
+			<li>在线会员:<span>{php echo $db->count($DT_PRE.'online', '1', 1800);}</span></li>
+			</ul>
+      </div>
+                            <div class="ye-tradex">
                             </div>
                           </div>
                         </div>
                         <div class="mod-baopin">
+          <div class="header text-center">
+            <h4>加入QQ群</h4>
+          </div>
+<div class="content">
                             <img src="{DT_SKIN}erweima.png" alt="玛卡通官方群二维码" class="qunerweima" />
+                            </div>
                             {php //template 'slider-list','chip'}
                           </div>
                           <a href="#" title="prev" class="arrow arrow-l">
