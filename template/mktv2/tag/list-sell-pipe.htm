@@ -1,5 +1,4 @@
-{php $a = array('1','2','3')}
-{loop $a $i $k}
+{loop $tags $i $t}
 <div class="pipeline{if $i == 0} pipeline-first{/if}">
   <div class="mod-com-silde">
     <div class="content">
@@ -13,11 +12,11 @@
             </a>
             </dt>
             <dd class="description ms-yh">
-            <a href="#" title="">极品玛卡干片</a>
+            <a href="#" title="{$t[title]}">{dsubstr($t[title],32)}</a>
             </dd>
-            <dd class="txt">金奖品质</dd>
+            <dd class="txt">{$t[price]}/{$t[unit]}</dd>
             <dd class="txt">
-            <span class="tag ">包邮送精包装</span>
+            <span class="tag ">{$t[minamount]}{$t[unit]}起订</span>
             </dd>
           </dl>
           </li>
@@ -27,16 +26,13 @@
         <a href="#" target="_self" class="btn btn-next">
         </a>
         <div class="state">
-          <em class="idx">0</em>
-          /
-          <em class="len">0</em>
         </div>
       </div>
     </div>
     <div class="footer">
       <ul>
         <li class="f-tab-t current ">
-        <a href="#">云南高原特产</a>
+        {$t[company]}
         </li>
         <li class="f-tab-t ">
         <a href="" tppabs="http://tao.1688.com/offer/1226383503.html">
