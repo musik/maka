@@ -1,0 +1,207 @@
+<div class="crazy-box-layout layout cell-layout-64 layout-col" style="margin-bottom:0">
+  <div class="crazy-box-grid grid crazy-box-enable-row">
+    <div class="crazy-box-row cell-row-65">
+      <div class="crazy-box-box box-100 crazy-box-enable-module">
+        <div class="crazy-box-module cell-module-69" data-spm="1997448457">
+          <div class="mod-food-common-floor">
+            <div class="app-header">
+              <h2 class="ms-yh">
+                <span class="act-float-title" data-title="{$ct[catname]}">
+                  {$ct[catname]}
+                </span>
+                ·
+                <a href="{$MODULE[$mid][linkurl]}{$ct[linkurl]}" rel="nofollow">进入<span class="san"></span></a>
+              </h2>
+            </div>
+            <div class="app-content fd-clr  newextra ">
+              <div class="sub tab">
+                <ul class="img-list">
+                  <li class="f-tab-b">
+                    <a href="">
+                      <img src="{DT_SKIN}css/lazyload.png"
+                      data-lazy-src="1943980_667054274.jpg">
+                    </a>
+                  </li>
+                </ul>
+                <ul class="list hover-list">
+                </ul>
+              </div>
+              <div class="main fd-clr">
+                <div class="header">
+                </div>
+                <div class="content fd-clr">
+      <!--{tag("moduleid=5&length=18&condition=status=3&pagesize=".$DT['page_sell']."&order=itemid desc&width=100&height=100&cols=5&target=_blank&template=thumb-table")}-->
+                  <dl class="cell-thumbnail">
+                    <dt class="img-vertical">
+                      <a class="img-wrap" href=""
+                      title="0601韩国KJ国际蜂蜜柚子茶 进口食品批发 560g*20个/箱 排毒养颜">
+                        <img src="{DT_SKIN}css/lazyload.png"
+                        data-lazyload-src="1305305238_1974521184.search.jpg"
+                        alt="0601韩国KJ国际蜂蜜柚子茶 进口食品批发 560g*20个/箱 排毒养颜" />
+                      </a>
+                    </dt>
+                    <dd class="description">
+                      <div class="ddtitle">
+                        <a href="" title="0601韩国KJ国际蜂蜜柚子茶 进口食品批发 560g*20个/箱 排毒养颜">
+                          0601韩国KJ国际蜂蜜柚子茶 进口食品批发 560g*20个/箱 排毒养颜
+                        </a>
+                      </div>
+                      <div class="price">
+                        批发价：
+                        <span class="fd-cny">
+                          &yen;
+                        </span>
+                        <em class="value">
+                          350.00
+                        </em>
+                        /件
+                      </div>
+                      <div class="buyer">
+                        买家数：310人
+                      </div>
+                      <div class="soldout">
+                        已热批：1031箱
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl class="cell-thumbnail">
+                    <dt class="img-vertical">
+                      <a class="img-wrap" href=""
+                      title="【南国品牌团】320g纯椰子粉冲调饮品纯天然无添加">
+                        <img src="lazyload.png"
+                        data-lazyload-src="1435539519_1872044835.search.jpg"
+                        alt="【南国品牌团】320g纯椰子粉冲调饮品纯天然无添加" />
+                      </a>
+                    </dt>
+                    <dd class="description">
+                      <div class="ddtitle">
+                        <a href="" title="【南国品牌团】320g纯椰子粉冲调饮品纯天然无添加">
+                          【南国品牌团】320g纯椰子粉冲调饮品纯天然无添加
+                        </a>
+                      </div>
+                      <div class="price">
+                        批发价：
+                        <span class="fd-cny">
+                          &yen;
+                        </span>
+                        <em class="value">
+                          20.90
+                        </em>
+                        /件
+                      </div>
+                      <div class="buyer">
+                        买家数：354人
+                      </div>
+                      <div class="soldout">
+                        已热批：50840袋
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl class="cell-thumbnail">
+                    <dt class="img-vertical">
+                      <a class="img-wrap" href=""
+                      title="益利正品浓香核桃粉健脑益智疏通血管健康养生408g罐装即食冲饮品">
+                        <img src="lazyload.png"
+                        data-lazyload-src="1356515611_111367254.search.jpg"
+                        alt="益利正品浓香核桃粉健脑益智疏通血管健康养生408g罐装即食冲饮品" />
+                      </a>
+                    </dt>
+                    <dd class="description">
+                      <div class="ddtitle">
+                        <a href="" title="益利正品浓香核桃粉健脑益智疏通血管健康养生408g罐装即食冲饮品">
+                          益利正品浓香核桃粉健脑益智疏通血管健康养生408g罐装即食冲饮品
+                        </a>
+                      </div>
+                      <div class="price">
+                        批发价：
+                        <span class="fd-cny">
+                          &yen;
+                        </span>
+                        <em class="value">
+                          11.60
+                        </em>
+                        /件
+                      </div>
+                      <div class="buyer">
+                        买家数：79人
+                      </div>
+                      <div class="soldout">
+                        已热批：1665罐
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl class="cell-thumbnail">
+                    <dt class="img-vertical">
+                      <a class="img-wrap" href=""
+                      title="马来西亚 旧街场oldtown白咖啡480克经典榛果味/原味等 多种口味">
+                        <img src="lazyload.png"
+                        data-lazyload-src="1039572521_632361561.search.jpg"
+                        alt="马来西亚 旧街场oldtown白咖啡480克经典榛果味/原味等 多种口味" />
+                      </a>
+                    </dt>
+                    <dd class="description">
+                      <div class="ddtitle">
+                        <a href="" title="马来西亚 旧街场oldtown白咖啡480克经典榛果味/原味等 多种口味">
+                          马来西亚 旧街场oldtown白咖啡480克经典榛果味/原味等 多种口味
+                        </a>
+                      </div>
+                      <div class="price">
+                        批发价：
+                        <span class="fd-cny">
+                          &yen;
+                        </span>
+                        <em class="value">
+                          29.00
+                        </em>
+                        /件
+                      </div>
+                      <div class="buyer">
+                        买家数：187人
+                      </div>
+                      <div class="soldout">
+                        已热批：889袋
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl class="cell-thumbnail">
+                    <dt class="img-vertical">
+                      <a class="img-wrap" href=""
+                      title="韩国进口 海太果汁饮料 多种口味 一箱12瓶  238ML*12听/组">
+                        <img src="lazyload.png"
+                        data-lazyload-src="1447624910_48970975.search.jpg"
+                        alt="韩国进口 海太果汁饮料 多种口味 一箱12瓶  238ML*12听/组" />
+                      </a>
+                    </dt>
+                    <dd class="description">
+                      <div class="ddtitle">
+                        <a href="" title="韩国进口 海太果汁饮料 多种口味 一箱12瓶  238ML*12听/组">
+                          韩国进口 海太果汁饮料 多种口味 一箱12瓶 238ML*12听/组
+                        </a>
+                      </div>
+                      <div class="price">
+                        批发价：
+                        <span class="fd-cny">
+                          &yen;
+                        </span>
+                        <em class="value">
+                          39.00
+                        </em>
+                        /件
+                      </div>
+                      <div class="buyer">
+                        买家数：90人
+                      </div>
+                      <div class="soldout">
+                        已热批：560个
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

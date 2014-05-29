@@ -1,0 +1,22 @@
+.mod-food-area div.header{width:1190px;height:40px;line-height:40px;}
+.mod-food-area h3{font-size:20px;float:left;}
+.mod-food-area span{float:right;padding:0 5px;color:#ccc !important;}
+.mod-food-area a:hover{text-decoration: none;}
+.mod-food-area a{padding:0 15px;color:#333;}
+.mod-food-area .content{border:1px solid #ccc ;border-top:2px solid #109e25;}
+.mod-food-area .mod-spec,.mod-food-area .mod-jinkou{float:left;}
+.mod-food-area .mod-spec .nonbg .spec-title{color:#333;}
+.mod-food-area .mod-spec .nonbg .list li a{color:#333;}
+.mod-food-area .mod-spec{width:593px;padding-bottom:10px;}
+.mod-food-area .br1{border-right:1px solid #ccc;}
+.mod-food-area .mod-spec div.spec-header{width:593px;height:58px;}
+.mod-food-area .mod-spec div.green{background-color:#109e25;}
+.mod-food-area .mod-spec div.spec-title{float:left;height:58px;font-weight:700;line-height:58px;color:#fff;font-size:16px;padding-left:20px;font-weight:700;}
+.mod-food-area .mod-spec div.show{float:left;width:185px;height:130px;margin:10px 0 0 10px;}
+.mod-food-area .spec-header ul.list{float:right;height:58px;line-height:58px;color:#fff;margin-right:20px;}
+.mod-food-area .spec-header ul.list a{color:#fff;}
+.mod-food-area .mod-spec .spec-show a{position:relative;width:169px;padding:5px 8px 0;height:125px;background-color:#e6e6e6;float:left;_display:inline;margin:10px 0 0 10px;}
+.mod-food-area .mod-spec .spec-show a:hover{text-decoration: none;}
+.mod-food-area .spec-show a .offer-title{font-size:12px;font-weight:700;position:absolute;top:8px;left:8px;z-index:2;color:#333;width:169px;height:22px;line-height:22px;overflow:hidden;}
+.mod-food-area .spec-show a .price{color:#cc0000;position:absolute;top:32px;left:8;z-index:2;}
+.mod-food-area .spec-show a .img-vertical{position:absolute;right:8px;top:30px;width:100px;height:100px;}

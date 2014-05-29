@@ -1,0 +1,30 @@
+{loop $tags $i $t}
+                  <dl class="cell-thumbnail {if $i%$cols==0} first{/if}">
+                    <dt class="img-vertical">
+                    <a class="img-wrap" href="{$t[linkurl]}"{if $target} target="{$target}"{/if}>
+                      <img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/>
+                    </a>
+                    </dt>
+                    <dd class="description">
+                      <div class="ddtitle">
+                        <a href="{$t[linkurl]}" title="{$t[alt]}"{if $target} target="{$target}"{/if}>{$t[title]}</a>
+                      </div>
+                      <div class="price">
+                        批发价：
+                        <span class="fd-cny">
+                          &yen;
+                        </span>
+                        <em class="value">
+                          350.00
+                        </em>
+                        /件
+                      </div>
+                      <div class="buyer">
+                        买家数：310人
+                      </div>
+                      <div class="soldout">
+                        已热批：1031箱
+                      </div>
+                    </dd>
+                  </dl>
+{/loop}

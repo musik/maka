@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr" class="no-js w1190">
+    
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{DT_SKIN}mkt.css" />
+        <link rel="stylesheet" type="text/css" href="{DT_SKIN}floor.css" />
+        <script type="text/javascript" src="{DT_SKIN}/js/fi000001.js">
+        </script>
+        <title>
+            {if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if
+            $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}
+        </title>
+        {if $head_keywords}
+        <meta name="keywords" content="{$head_keywords}" />
+        {/if} {if $head_description}
+        <meta name="description" content="{$head_description}" />
+        {/if} {if $head_mobile}
+        <meta http-equiv="mobile-agent" content="format=xhtml; url={$head_mobile}">
+        <meta http-equiv="mobile-agent" content="format=html5; url={$head_mobile}">
+        {/if}
+        <link rel="stylesheet" href="{DT_SKIN}/css/ie.css-_v=28cf922f36d3f4ccd65c47b35757b998.css"
+        />
+        <link rel="stylesheet" href="{DT_SKIN}/css/areaspec.css-_v=819e87e59be988cd55fc0e7faf898cf4.css"
+        />
+        <!--[if IE]>
+        <![endif]-->
+        <base target="_blank" />
+        <link rel="stylesheet" href="{DT_SKIN}/css/fi000002.css" />
+        <script type="text/javascript" src="{DT_SKIN}/js/--js-sys-universal-alibar-standard-v2-min.js,js-sys-universal-header-industry-v5-min.js-_v=4b72c363f3b1f318f0f6cb425bdcf748.js">
+        </script>
+        <link rel="stylesheet" href="{DT_SKIN}/css/sidebar-min.css-_v=3f6bc9103b3f68df6b3ab4b1106c8e93.css"/>
+        
+
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $moduleid==1 && $EXT[wap_enable] && $EXT[wap_goto]}
+GoMobile('{$EXT[wap_url]}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+    </head>
+    
+    <body data-spm="7264485">
+        <script type=text/javascript>
+            var dmtrack_c = '{-}';
+            var dmtrack_pageid = '0eccac7a698001298730001401338087'; (function(d) {
+                var t = d.createElement("script");
+                t.type = "text/javascript";
+                t.async = true;
+                t.src = "{DT_SKIN}/js/cn.js"
+                /*tpa=http://style.c.aliimg.com/sys/js/beacon/cn.js*/
+                ;
+                d.getElementsByTagName("head")[0].appendChild(t);
+            } (document));
+        </script>
+        <noscript>
+            <img src="b.jpg-cD0yJnU9ey9mb29kLjE2ODguY29tL2NoYWppdXlpbmxpYW99Jm09e0dFVH0mcz17MjAwfSZyPXstfSZhPXstfSZiPXstfSZjPXstfQ==&ver=40&pageid=0eccac7a6980069001401338087&time=1401338087.jpg">
+        </noscript>
+        <script type=text/javascript>
+            var _SPM_a = '{-}';
+            var _SPM_b = '{-}';
+            var _SPM_app_name = '{-}';
+            var _SPM_template_path = '{-}';
+        </script>
+        <div id="doc" class="doc">
+            <div id="alibar" class="fd-clr">
+                <div id="alibar-v4">
+                    <div class="alibar-container">
+                        <div class="mobile">
+                        <ul>
+			{if $DT[city]}<li class="h_city">[<span id="destoon_city">{$city_name}</span>] <a href="{DT_PATH}api/city.php" title="点击切换城市" rel="nofollow">切换</a></li>{/if}
+			<li class="h_fav"><script type="text/javascript">addFav('收藏本页');</script></li>
+			{if $EXT[wap_enable]}<li class="h_wap"><a href="{$EXT[wap_url]}mobile.php">手机版</a>&nbsp;</li>{/if}
+			{if $MODULE[16]}<li class="h_cart"><a href="{$MODULE[16][linkurl]}cart.php" rel="nofollow">购物车</a>(<span class="head_t" id="destoon_cart">0</span>)</li>{/if}
+								</ul>
+                        </div>
+                        <div class="account-sign-status" id="destoon_member">
+                        </div>
+                        <div class="topnav">
+
+                        </div>
+                    </div>
+                    <div class="alibar-tips fd-hide">
+                        <div class="tips-content">
+                            <div class="tip-logo">
+                            </div>
+                            <div class="tip-text">
+                            </div>
+                            <div class="tips-close">
+                            </div>
+                        </div>
+                        <div class="tips-top">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="header" class="mod-spm" data-spm="1724188157">
+                <div id="ali-masthead-5i" class="w952 screen fd-clr food">
+                    <div class="ali-logo">
+                        <a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a>
+                     
+                    </div>
+                    <div class="ali-search">
+                        <form id="destoon_search" action="{$MODULE[$searchid][linkurl]}search.php" onsubmit="return Dsearch(1);">
+                        <input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid"/>
+	<input type="hidden" name="spread" value="0" id="destoon_spread"/>
+                            <fieldset>
+                                <legend>
+                                    搜索
+                                </legend>
+                                <div class="alisearch-container">
+                                    <div class="alisearch-box">
+                                        <div class="alisearch-type">
+                                            <ul>
+                                            {loop $MODULE $m}
+                                            {if $m[ismenu] && !$m[islink]}
+                                            <li><a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{$m[name]}')">{$m[name]}</a></li>
+                                            {/if}
+                                            {/loop}
+                                            </ul>
+                                        </div>
+                                        <div class="alisearch-keywords">
+                                            <input class="empty" accesskey="s" maxlength="50" name="kw"
+                                            x-webkit-speech speech x-webkit-grammar="builtin:translate" 
+                                            value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"
+                                            {if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if}  />
+                                        </div>
+                                    </div>
+                                    <div class="alisearch-action">
+                                        <button class="market" type="submit">
+                                            搜索
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="ali-nav-6i" id="ali-nav-6i">
+                    <div class="ali-nav-6i-main  ali-nav-food-main">
+                        <div class="wrap">
+                            <div class="layout">
+                                <dl class="nav-list">
+                                    <dd class="market {if $moduleid<4} selected{/if}">
+                                        <a href="{$MODULE[1][linkurl]}">
+                                            首页
+                                        </a>
+                                    </dd>
+                                    {loop $MODULE $m}{if $m[ismenu]}
+                                    <dd class="market{if $m[moduleid]==$moduleid} selected{/if}">
+                                    <a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if} {if $m[style]} style="color:{$m[style]};"{/if}>{$m[name]}</a>
+                                    </dd>
+                                    {/if}{/loop}
+                                    <dd class="fd-right product">
+                                        <a href="#">
+                                            客服
+                                        </a>
+                                    </dd>
+               
+                                </dl>
+                               </div>
+                               </div>
+                        </div>
+                    </div>
+                    <div class="ali-nav-6i-sub ali-nav-food-sub" data-channel="jiushuichayin">
+                        <div class="wrap">
+                            <div class="layout">
+                                <ul class="sub-nav-list">
+                                {php $mid = 5;}
+					{php $sellcats = get_maincat(0, $mid, 1);}
+					{loop $sellcats $i $c}
+<li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a></li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

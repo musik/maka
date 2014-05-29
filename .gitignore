@@ -14,3 +14,4 @@ session
 /config/nginx.conf
 /*.xml
 /upyun/config.inc.php
+pmt

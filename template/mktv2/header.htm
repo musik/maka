@@ -91,13 +91,16 @@ document.onselectstart=function(e){return false;};
 		</div>
 	</div>
 	</form>
+	<div class="head_search_kw f_l"><a href="" onclick="Dsearch_top();return false;"><strong>标王</strong></a> 
+	<a href="" onclick="Dsearch_adv();return false;"><strong>热搜：</strong></a>
+	<span id="destoon_word"><!--{tag("moduleid=$searchid&table=keyword&condition=moduleid=$searchid and status=3&pagesize=10&order=total_search desc&template=list-search_kw")}--></span></div>
 </div>
 <div class="m">
 	<div class="menu">
 		<ul><li{if $moduleid<4} class="menuon"{/if}><a href="{$MODULE[1][linkurl]}"><span>首页</span></a></li>{loop $MODULE $m}{if $m[ismenu]}<li{if $m[moduleid]==$moduleid} class="menuon"{/if}><a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}><span{if $m[style]} style="color:{$m[style]};"{/if}>{$m[name]}</span></a></li>{/if}{/loop}</ul>
 	</div>
   <div class="subnav">
-	玛卡常识: <!--{tag("table=webpage&condition=item='maka'&areaid=$cityid&order=listorder desc&template=list-subnav")}-->
+	玛卡常识: <!--{tag("table=webpage&condition=item=2&areaid=$cityid&order=listorder asc,itemid asc&template=list-subnav")}-->
   </div>
 </div>
 <div class="m b10">&nbsp;</div>
