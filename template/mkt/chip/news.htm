@@ -1,0 +1,76 @@
+<div class="m">
+	<div class="box_head">
+		<span class="f_r f_gray">	
+			<!--{php $tags=tag("table=category&condition=moduleid=$mid and parentid=0&pagesize=10&order=listorder,catid&template=null");}-->
+			{loop $tags $i $t}{if $i} &nbsp;|&nbsp; {/if}<a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}">{$t[catname]}</a>{/loop}
+		</span>
+    <a href="{$MODULE[$mid][linkurl]}"><strong>{$MODULE[$mid][name]}</strong></a>
+	</div>
+
+	<div class="box_body">
+
+		<div style="margin:0 0 0 10px;" class="m_r f_l">
+			{if $DT[page_rank] && isset($MODULE[$mid])}
+			<div class="ibox_head">
+				<a href="{$MODULE[$mid][linkurl]}"><strong>点击排行</strong></a>
+			</div>
+			<div class="rank_list"><!--{php $tags=tag("moduleid=$mid&condition=status=3 and addtime>$today_endtime-30*86400&areaid=$cityid&order=hits desc&pagesize=".$DT[page_rank]."&template=null");}-->			
+			<ul>
+			{loop $tags $t}
+			<li><span class="f_r px11 f_gray">{$t[hits]}</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+			{/loop}
+			</ul>
+			</div>
+			<div class="b10">&nbsp;</div>
+			{/if}
+			{if $DT[page_special] && isset($MODULE[11])}
+			<div class="ispecial">
+			<a href="{$MODULE[11][linkurl]}" class="w">专题</a>
+			<!--{php $tags=tag("moduleid=11&condition=status=3 and level>0&pagesize=".$DT[page_special]."&order=addtime desc&template=null");}-->
+			{loop $tags $t}
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
+			{/loop}
+			</div>
+			<div class="b10">&nbsp;</div>
+			{/if}
+		</div>
+
+
+		<div style="width:360px;" class="f_l">
+			{if $DT[page_newsh] && isset($MODULE[$mid])}
+			<div class="headline">
+			<!--{tag("moduleid=$mid&condition=status=3 and level=5&areaid=$cityid&order=addtime desc&pagesize=1&target=_blank&template=list-hl")}-->
+			</div>
+			{/if}
+			{if $DT[page_news] && isset($MODULE[$mid])}
+			<div class="ibox_body">
+			<!--{tag("moduleid=$mid&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT[page_news]."&datetype=2&order=addtime desc&target=_blank")}-->
+			</div>
+			<div class="ibox_body_s b10">&nbsp;</div>
+			<div class="ibox_body">
+			<!--{tag("moduleid=$mid&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT[page_news]."&datetype=2&page=2&order=addtime desc&target=_blank")}-->
+			</div>
+			{/if}
+		</div>
+
+		<div class="w290 f_r">
+			{if $DT[page_photo] && isset($MODULE[12])}
+			<div class="ibox_head">
+				<a href="{$MODULE[12][linkurl]}"><strong>图库</strong></a>
+			</div>
+			<div class="thumb"><!--{tag("moduleid=12&condition=status=3 and open=3 and level>0&pagesize=".$DT['page_photo']."&order=addtime desc&width=80&height=60&cols=3&target=_blank&lazy=$lazy&template=list-photo")}--></div>
+			{/if}
+			{if $DT[page_video] && isset($MODULE[14])}
+			<div class="ibox_head">
+				<a href="{$MODULE[14][linkurl]}"><strong>视频</strong></a>
+			</div>
+			<div class="video"><!--{tag("moduleid=14&condition=status=3 and level>0&pagesize=".$DT[page_video]."&datetype=2&order=addtime desc&target=_blank")}--></div>
+			<div class="b10">&nbsp;</div>
+			{/if}
+		</div>
+
+		<div class="c_b"></div>
+	</div>
+</div>
+
+<div class="m b10"></div>

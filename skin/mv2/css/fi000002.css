@@ -3331,13 +3331,19 @@
   margin-left: 44px;
 }
 #site_stats li{
-  float: left;
+  /*float: left;*/
+  /*width: 110px;*/
   line-height: 22px;
-  width: 110px;
 }
 #site_stats li span{
   color: #389701;
   margin-left: 10px;
   padding-right: 16px;
   background: url(../image/ico_arrow_up.gif) no-repeat right 3px;
+}
+.links{
+  margin: 1em;
+}
+.links a{
+  color: #666;
 }

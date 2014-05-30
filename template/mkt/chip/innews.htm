@@ -1,0 +1,64 @@
+<div class="m">
+  <div class="s-title">
+    <span class="f_r f_gray">	
+      <!--{php $tags=tag("table=category&condition=moduleid=$mid and parentid=0&pagesize=10&order=listorder,catid&template=null");}-->
+      {loop $tags $i $t}{if $i} &nbsp;|&nbsp; {/if}<a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}">{$t[catname]}</a>{/loop}
+    </span>
+    <h2><a href="{$MODULE[$mid][linkurl]}">{$MODULE[$mid][name]}</a></h2>
+  </div>
+  <div class="m_l f_l">
+    {php $odd = count($tags)%2;}
+    {loop $tags $i $t}
+    {php $catid = $t[catid]}
+    <?php 
+    $num = $DT['page_news'];
+    if($odd && !$i ) {
+      $class = "s-box-tall";
+      $num = $DT['page_news'] * 2 + 1;
+    }
+    $j = ($odd && $i > 1) ?  $i+1 : $i;
+    ?>
+    <div class="s-box {$class} {if $j%2}s-box-r{/if} f_l">
+      <h3><a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}">{$t[catname]}</a></h3>
+      <div class="li_dot">
+        <!--{tag("moduleid=$mid&condition=status=3 and level>0&catid=$catid&pagesize=$num&order=addtime desc&target=_blank")}-->
+      </div>
+    </div>
+    {/loop}
+  </div>
+  {php $rows = ceil(count($tags)/2);}
+
+  <div class="m_r f_r">
+    {if $DT[page_rank] && isset($MODULE[$mid])}
+    <div class="ibox_head">
+      <a href="{$MODULE[$mid][linkurl]}"><strong>点击排行</strong></a>
+    </div>
+    <div class="rank_list"><!--{php $tags=tag("moduleid=$mid&condition=status=3 and addtime>$today_endtime-30*86400&areaid=$cityid&order=hits desc&pagesize=".$DT[page_rank] * $rows."&template=null");}-->			
+      <ul>
+        {loop $tags $t}
+        <li><span class="f_r px11 f_gray">{$t[hits]}</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+        {/loop}
+      </ul>
+    </div>
+    <div class="b10">&nbsp;</div>
+    {/if}
+    {if $DT[page_special] && isset($MODULE[11])}
+    <div class="ispecial">
+      <a href="{$MODULE[11][linkurl]}" class="w">专题</a>
+      <!--{php $tags=tag("moduleid=11&condition=status=3 and level>0&pagesize=".$DT[page_special]."&order=addtime desc&template=null");}-->
+      {loop $tags $t}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
+      {/loop}
+    </div>
+    <div class="b10">&nbsp;</div>
+    {/if}
+
+
+
+
+    <div class="c_b"></div>
+  </div>
+</div>
+
+
+<div class="m b10"></div>

@@ -56,9 +56,7 @@
 			<div id="site_stats">
 			<ul>
 			<li>产品总数:<span>{php echo $db->count($DT_PRE.'sell_5', 'status=3', 1800);}</span></li>
-			<li>求购总数:<span>{php echo $db->count($DT_PRE.'buy_6', 'status=3', 1800);}</span></li>
 			<li>企业总数:<span>{php echo $db->count($DT_PRE.'company', '1', 1800);}</span></li>
-			<li>在线会员:<span>{php echo $db->count($DT_PRE.'online', '1', 1800);}</span></li>
 			</ul>
       </div>
                             <div class="ye-tradex">
@@ -129,4 +127,5 @@
 {template 'box-layout','chip'}
 {/if}
 {/loop}
+{template 'links','chip'}
 {template 'home-footer'}
