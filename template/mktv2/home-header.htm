@@ -50,6 +50,11 @@
 <script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
 {/loop}
 {/if}
+{if $TJS}
+{loop $TJS $js}
+<script type="text/javascript" src="{DT_SKIN}js/{$js}.js"></script>
+{/loop}
+{/if}
 {php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
 <script type="text/javascript">
 {if $moduleid==1 && $EXT[wap_enable] && $EXT[wap_goto]}

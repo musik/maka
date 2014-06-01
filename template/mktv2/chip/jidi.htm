@@ -1,18 +1,32 @@
 <div class="mod-zhishu mod-diy" data-category-id="2">
   <div class="header">
     <ul class="fd-clr">
-      <li class="f-tab-t first current" data-type="sales">
-      <a href="/zhongzhi/makajidi/">
-        种植基地
-      </a>
+      <li class="f-tab-t first current" id="tab-jidi">
+      <a href="/zhongzhi/makajidi/">玛卡基地</a>
+      </li>
+      <li class="f-tab-t" id="tab-zhishi">
+      <a href="/zhishi/">玛卡知识</a>
+      </li>
+      <li class="f-tab-t" id="tab-news">
+      <a href="/news/">玛卡新闻</a>
       </li>
     </ul>
   </div>
   <div class="content">
     <ul>
-      <li class="f-tab-b f-tab-sales">
-      <div class="flash-sales">
-        <!--{tag("moduleid=23&catid=17&condition=level=1&pagesize=".$DT['page_rank'])}-->
+      <li class="f-tab-b f-tab-c f-tab-jidi">
+      <div class="content">
+        <!--{tag("moduleid=23&catid=17&len=34&order=itemid desc&condition=level=1&pagesize=".$DT['page_rank'])}-->
+      </div>
+      </li>
+      <li class="f-tab-b f-tab-c f-tab-zhishi hidden">
+      <div class="content">
+        <!--{tag("moduleid=24&len=34&order=itemid desc&condition=level=1&pagesize=".$DT['page_rank'])}-->
+      </div>
+      </li>
+      <li class="f-tab-b f-tab-c f-tab-news hidden">
+      <div class="content">
+        <!--{tag("moduleid=21&len=34&order=itemid desc&condition=level=1&pagesize=".$DT['page_rank'])}-->
       </div>
       </li>
     </ul>
