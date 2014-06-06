@@ -13,7 +13,7 @@ if($swfupload) {//Fix FlashPlayer Bug
 	$swf_userid = intval($swf_userid);
 	if($swf_userid != $_userid && is_md5($swf_auth)) {
 		$swf_groupid = intval($swf_groupid);
-		if($swf_auth = md5($swf_userid.$swf_username.$swf_groupid.$swf_company.DT_KEY.$DT_IP)) {
+		if($swf_auth == md5($swf_userid.$swf_username.$swf_groupid.$swf_company.DT_KEY.$DT_IP) || $swf_auth == md5($swf_userid.$swf_username.$swf_groupid.convert($swf_company, 'utf-8', DT_CHARSET).DT_KEY.$DT_IP)) {
 			$_userid = $swf_userid;
 			$_username = $swf_username;
 			$_groupid = $swf_groupid;
@@ -86,14 +86,23 @@ if($do->save()) {
 		if($swfupload) exit(convert($errmsg, DT_CHARSET, 'utf-8'));
 		dalert($errmsg, '', $errjs);
 	}
-	$t = @getimagesize(DT_ROOT.'/'.$do->saveto);
-	if(in_array($do->ext, array('jpg', 'jpeg', 'gif', 'png', 'swf', 'bmp')) && !$t) {
-		file_del(DT_ROOT.'/'.$do->saveto);
-		$errmsg = 'Error(6)'.lang('message->upload_bad');
-		if($swfupload) exit(convert($errmsg, DT_CHARSET, 'utf-8'));
-		dalert($errmsg, '', $errjs);
+	$img_info = @getimagesize(DT_ROOT.'/'.$do->saveto);
+	if(in_array($do->ext, array('jpg', 'jpeg', 'gif', 'png', 'bmp', 'swf'))) {
+		$upload_bad = 0;
+		if($img_info) {
+			$upload_mime = array('jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'bmp' => 'image/bmp', 'swf' => 'application/x-shockwave-flash');
+			if($img_info['mime'] != $upload_mime[$do->ext]) $upload_bad = 1;
+		} else {
+			$upload_bad = 1;
+		}
+		if($upload_bad) {
+			file_del(DT_ROOT.'/'.$do->saveto);
+			$errmsg = 'Error(6)'.lang('message->upload_bad');
+			if($swfupload) exit(convert($errmsg, DT_CHARSET, 'utf-8'));
+			dalert($errmsg, '', $errjs);
+		}
 	}
-	if(in_array($do->ext, array('jpg', 'jpeg')) && $t['channels'] == 4) {
+	if(in_array($do->ext, array('jpg', 'jpeg')) && $img_info['channels'] == 4) {
 		file_del(DT_ROOT.'/'.$do->saveto);
 		$errmsg = 'Error(7)'.lang('message->upload_cmyk');
 		if($swfupload) exit(convert($errmsg, DT_CHARSET, 'utf-8'));
@@ -122,9 +131,8 @@ if($do->save()) {
 				if(DT_CHMOD) @chmod(DT_ROOT.'/'.$do->saveto, DT_CHMOD);
 			}
 		}
-		$info = getimagesize(DT_ROOT.'/'.$do->saveto);
-		$img_w = $info[0];
-		$img_h = $info[1];
+		$img_w = $img_info[0];
+		$img_h = $img_info[1];
 		if($DT['max_image'] && in_array($from, array('editor', 'album', 'photo'))) {
 			if($img_w > $DT['max_image']) {
 				$img_h = intval($DT['max_image']*$img_h/$img_w);
@@ -241,7 +249,7 @@ if($do->save()) {
 	dalert('', '', $js);
 } else {
 	$errmsg = 'Error(9)'.$do->errmsg;
-	if($swfupload) exit(convert($errmsg, DT_CHARSET, 'utf-8'));
+	if($swfupload) exit(convert($errmsg, DT_CHARSET, 'UTF-8'));
 	dalert($errmsg, '', $errjs);
 }
 ?>

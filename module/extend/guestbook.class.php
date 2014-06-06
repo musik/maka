@@ -26,6 +26,7 @@ class guestbook {
 		$post['content'] = trim(strip_tags($post['content']));
 		$post['title'] = in_array($post['type'], $TYPE) ? '['.$post['type'].']' : '';
 		$post['title'] .= dsubstr($post['content'], 30);
+		$post['title'] = daddslashes($post['title']);
 		$post['hidden'] = isset($post['hidden']) ? 1 : 0;
 		if($this->itemid) {
 			$post['status'] = $post['status'] == 2 ? 2 : 3;

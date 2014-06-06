@@ -32,10 +32,12 @@ function dsafe($string) {
 	if(is_array($string)) {
 		return array_map('dsafe', $string);
 	} else {
+		$string = preg_replace("/\<\!\-\-([\s\S]*?)\-\-\>/", "", $string);
+		$string = preg_replace("/\/\*([\s\S]*?)\*\//", "", $string);
 		$string = preg_replace("/&#([a-z0-9]+)([;]*)/i", "", $string);
 		if(preg_match("/&#([a-z0-9]+)([;]*)/i", $string)) return nl2br(strip_tags($string));
-		$match = array("/\<\!\-\-([\s\S]*?)\-\-\>/","/\/\*([\s\S]*?)\*\//","/s[[:space:]]*c[[:space:]]*r[[:space:]]*i[[:space:]]*p[[:space:]]*t/i","/e[\\\]*x[\\\]*p[\\\]*r[\\\]*e[\\\]*s[\\\]*s[\\\]*i[\\\]*o[\\\]*n/i","/on([a-z]{2,})([\(|\=|[:space:]]+)/i","/about/i","/frame/i","/link/i","/import/i","/meta/i","/textarea/i","/eval/i","/base64/i","/alert/i","/confirm/i","/prompt/i","/cookie/i","/document/i","/newline/i","/colon/i","/\\\x/i");
-		$replace = array("","","s<em></em>cript","ex<em></em>pression","o<em></em>n\\1\\2","a<em></em>bout","f<em></em>rame","l<em></em>ink","im<em></em>port","me<em></em>ta","text<em></em>area","e<em></em>val","base<em></em>64","a<em></em>lert","/con<em></em>firm/i","prom<em></em>pt","coo<em></em>kie","docu<em></em>ment","new<em></em>line","co<em></em>lon","\<em></em>x");
+		$match = array("/s[[:space:]]*c[[:space:]]*r[[:space:]]*i[[:space:]]*p[[:space:]]*t/i","/e[\\\]*x[\\\]*p[\\\]*r[\\\]*e[\\\]*s[\\\]*s[\\\]*i[\\\]*o[\\\]*n/i","/on([a-z]{2,})([\(|\=|[:space:]]+)/i","/about/i","/frame/i","/link/i","/import/i","/meta/i","/textarea/i","/eval/i","/data/i","/alert/i","/confirm/i","/prompt/i","/cookie/i","/document/i","/newline/i","/colon/i","/\\\x/i");
+		$replace = array("s<em></em>cript","ex<em></em>pression","o<em></em>n\\1\\2","a<em></em>bout","f<em></em>rame","l<em></em>ink","im<em></em>port","me<em></em>ta","text<em></em>area","e<em></em>val","da<em></em>ta","a<em></em>lert","/con<em></em>firm/i","prom<em></em>pt","coo<em></em>kie","docu<em></em>ment","new<em></em>line","co<em></em>lon","\<em></em>x");
 		return preg_replace($match, $replace, $string);
 	}
 }
@@ -119,13 +121,12 @@ function dsubstr($string, $length, $suffix = '', $start = 0) {
 
 function encrypt($txt, $key = '') {
 	$key or $key = DT_KEY;
-	$rnd = md5(microtime());
+	$rnd = random(32);
 	$len = strlen($txt);
-	$ren = strlen($rnd);
 	$ctr = 0;
 	$str = '';
 	for($i = 0; $i < $len; $i++) {
-		$ctr = $ctr == $ren ? 0 : $ctr;
+		$ctr = $ctr == 32 ? 0 : $ctr;
 		$str .= $rnd[$ctr].($txt[$i] ^ $rnd[$ctr++]);
 	}
 	return str_replace('=', '', base64_encode(kecrypt($str, $key)));
@@ -146,11 +147,10 @@ function decrypt($txt, $key = '') {
 function kecrypt($txt, $key) {
 	$key = md5($key);
 	$len = strlen($txt);
-	$ken = strlen($key);
 	$ctr = 0;
 	$str = '';
 	for($i = 0; $i < $len; $i++) {
-		$ctr = $ctr == $ken ? 0 : $ctr;
+		$ctr = $ctr == 32 ? 0 : $ctr;
 		$str .= $txt[$i] ^ $key[$ctr++];
 	}
 	return $str;
@@ -158,7 +158,8 @@ function kecrypt($txt, $key) {
 
 function strtohex($str) {
 	$hex = '';
-	for($i = 0; $i < strlen($str); $i++) {
+	$len = strlen($str);
+	for($i = 0; $i < $len; $i++) {
 		$hex .= dechex(ord($str[$i]));
 	}
 	return $hex;
@@ -166,7 +167,8 @@ function strtohex($str) {
 
 function hextostr($hex) {
 	$str = '';
-	for($i = 0; $i < strlen($hex) - 1; $i += 2) {
+	$len = strlen($hex);
+	for($i = 0; $i < $len - 1; $i += 2) {
 		$str .= chr(hexdec($hex[$i].$hex[$i+1]));
 	}
 	return $str;
@@ -195,8 +197,8 @@ function strip_uri($uri) {
 }
 
 function strip_sql($string) {
-	$search = array("/union/i","/0x([a-z0-9]{2,})/i","/select([[:space:]\*\/\-])/i","/update([[:space:]\*\/])/i","/replace([[:space:]\*\/])/i","/delete([[:space:]\*\/])/i","/drop([[:space:]\*\/])/i","/outfile([[:space:]\*\/])/i","/dumpfile([[:space:]\*\/])/i","/load_file\(/i","/substring\(/i","/substr\(/i","/lesft\(/i","/concat\(/i","/concat_ws\(/i","/ascii\(/i","/hex\(/i","/ord\(/i","/chars[[:space:]]*\(/i");
-	$replace = array('unio&#110;','0&#120;\\1','selec&#116;\\1','updat&#101;\\1','replac&#101;\\1','delet&#101;\\1','dro&#112;\\1','outfil&#101;\\1','dumpfil&#101;\\1','load_fil&#101;(','substrin&#103;(','subst&#114;(','lef&#116;(','conca&#116;(','concat_w&#115;(','asci&#105;(','he&#120;(','or&#100;(','cha&#114;(');
+	$search = array("/union/i","/where/i","/0x([a-z0-9]{2,})/i","/select([[:space:]\*\/\-\(])/i","/update([[:space:]\*\/\-\(])/i","/replace([[:space:]\*\/\-\(])/i","/delete([[:space:]\*\/\-\(])/i","/drop([[:space:]\*\/\-\(])/i","/outfile([[:space:]\*\/\-\(])/i","/dumpfile([[:space:]\*\/\-\(])/i","/load_file[[:space:]]*\(/i","/substring[[:space:]]*\(/i","/substr[[:space:]]*\(/i","/left[[:space:]]*\(/i","/concat[[:space:]]*\(/i","/concat_ws[[:space:]]*\(/i","/ascii[[:space:]]*\(/i","/hex[[:space:]]*\(/i","/ord[[:space:]]*\(/i","/char[[:space:]]*\(/i");
+	$replace = array('unio&#110;','wher&#101;','0&#120;\\1','selec&#116;\\1','updat&#101;\\1','replac&#101;\\1','delet&#101;\\1','dro&#112;\\1','outfil&#101;\\1','dumpfil&#101;\\1','load_fil&#101;(','substrin&#103;(','subst&#114;(','lef&#116;(','conca&#116;(','concat_w&#115;(','asci&#105;(','he&#120;(','or&#100;(','cha&#114;(');
 	return is_array($string) ? array_map('strip_sql', $string) : preg_replace($search, $replace, $string);
 }
 
@@ -470,6 +472,7 @@ function ip2area($ip, $type = '') {
 }
 
 function mobile2area($mobile) {
+	return '';
 	$area = '';
 	if(is_mobile($mobile)) {
 		$data = file_get("http://www.yodao.com/smartresult-xml/search.s?type=mobile&q=".$mobile);
@@ -875,7 +878,11 @@ function linkurl($linkurl) {
 }
 
 function imgurl($imgurl = '', $width = '') {
-	return $imgurl ? $imgurl : DT_SKIN.'image/nopic'.$width.'.gif';
+	if($imgurl) {
+		return strpos($imgurl, '://') === false ? DT_PATH.'/file/upload/'.$imgurl : $imgurl;
+	} else {
+		return $width ? DT_SKIN.'image/nopic'.$width.'.gif' : '';
+	}
 }
 
 function userurl($username, $qstring = '', $domain = '') {

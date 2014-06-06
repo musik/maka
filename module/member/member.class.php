@@ -373,7 +373,7 @@ class member {
 			credit_record($login_username, $MOD['credit_login'], 'system', $L['member_record_login'], $DT_IP);
 		}
 		$cookietime = $DT_TIME + ($login_cookietime ? intval($login_cookietime) : 86400*7);
-		$auth = encrypt($user['userid']."\t".$user['username']."\t".$user['groupid']."\t".$user['password']."\t".$user['admin'], md5(DT_KEY.$_SERVER['HTTP_USER_AGENT']));
+		$auth = encrypt($user['userid']."\t".$user['username']."\t".$user['groupid']."\t".$user['password']."\t".$user['admin'], md5(DT_KEY.$DT_IP));
 		set_cookie('auth', $auth, $cookietime);
 		set_cookie('userid', $user['userid'], $cookietime);
 		set_cookie('username', $user['username'], $DT_TIME + 86400*365);
@@ -478,9 +478,7 @@ class member {
 				$table_data = $DT_PRE.$table_data;
 				if($moduleid) $table_data = content_table($moduleid, $itemid, is_file(DT_CACHE.'/'.$moduleid.'.part'), $table_data);
 				$this->db->query("DELETE FROM {$table_data} WHERE itemid='$itemid'");
-				if($moduleid == 5) {
-					$this->db->query("DELETE FROM {$DT_PRE}sell_search WHERE itemid=$itemid");
-				}
+				if($MODULE[$moduleid]['module'] == 'sell') $this->db->query("DELETE FROM {$this->db->pre}sell_search_{$moduleid} WHERE itemid=$itemid");
 				if($moduleid && $r['linkurl'] && strpos($r['linkurl'], '://') === false && strpos($r['linkurl'], '.php') === false && strpos($r['linkurl'], 'show-') === false) {
 					$html = DT_ROOT.'/'.$MODULE[$moduleid]['moduledir'].'/'.$r['linkurl'];
 					if(is_file($html)) file_del($html);

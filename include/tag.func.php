@@ -26,6 +26,7 @@ function tag($parameter, $expires = 0) {
 		}
 	}
 	$parameter = str_replace(array('&amp;', '%'), array('', '##'), $parameter);
+	$parameter = strip_sql($parameter);
 	parse_str($parameter, $par);
 	if(!is_array($par)) return '';
 	$par = dstripslashes($par);
@@ -38,8 +39,8 @@ function tag($parameter, $expires = 0) {
 	isset($child) or $child = 1;
 	isset($areaid) or $areaid = 0;
 	isset($areachild) or $areachild = 1;
-	isset($dir) or $dir = 'tag';
-	isset($template) or $template = 'list';
+	(isset($dir) && check_name($dir)) or $dir = 'tag';
+	(isset($template) && check_name($template)) or $template = 'list';
 	isset($condition) or $condition = '1';
 	isset($group) or $group = '';
 	isset($page) or $page = 1;

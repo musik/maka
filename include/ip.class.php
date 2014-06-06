@@ -20,7 +20,7 @@ class ip {
 			$this->ipfile = DT_ROOT.'/file/ipdata/'.$func.'.dat';
 			return $this->$func();
 		}
-		foreach(array('wry', 'tiny', 'sina', 'youdao') as $d) {
+		foreach(array('wry', 'tiny', 'sina') as $d) {
 			$ipfile = DT_ROOT.'/file/ipdata/'.$d.'.dat';
 			if(is_file($ipfile)) {
 				$this->ipfile = $ipfile;
@@ -183,18 +183,6 @@ class ip {
 			return $area ? convert($area, 'UTF-8', DT_CHARSET) : 'Unknown';
 		}
 		return 'SINA API Error';
-	}
-
-	function youdao() {
-		$api = 'http://www.youdao.com/smartresult-xml/search.s?type=ip&q='.$this->ip;
-		$data = file_get($api);
-		if($data && strpos($data, '<location>') !== false) {
-			$t1 = explode('<location>', $data);
-			$t2 = explode('</location>', $t1[1]);
-			$area = $t2[0];
-			return $area ? convert($area, 'GBK', DT_CHARSET) : 'Unknown';
-		}
-		return 'YOUDAO API Error';
 	}
 }
 ?>

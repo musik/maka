@@ -5,6 +5,7 @@
 */
 defined('IN_DESTOON') or exit('Access Denied');
 if(!isset($CFG['edittpl']) || !$CFG['edittpl']) msg('系统禁止了在线修改模板，请FTP修改根目录config.inc.php<br/>$CFG[\'edittpl\'] = \'0\'; 修改为 $CFG[\'edittpl\'] = \'1\';');
+if(strpos(get_env('self'), '/admin.php') !== false) msg('后台文件名admin.php未修改，此功能已被系统禁用');
 isset($dir) or $dir = '';
 $menus = array (
 	array('新建模板', '?file='.$file.'&action=add&dir='.$dir),
@@ -32,7 +33,7 @@ function template_name($fileid = '', $name = '') {
 }
 
 function template_safe($content) {
-	if(preg_match("/(file_put|file_get|fwrite|fread|file\(|eval)/i", $content)) msg('模板内容包含不安全写法，请通过FTP修改模板');
+	if(preg_match("/(\<\?|file_put|file_get|fopen|fwrite|fread|file\(|eval)/i", $content)) msg('模板内容包含不安全写法，请通过FTP修改模板');
 	$content = stripslashes($content);
 	$content = str_replace(array('0&#120;', 'selec&#116;','updat&#101;', 'replac&#101;', 'delet&#101;', 'substrin&#103;', 'subst&#114;'), array('0x', 'select', 'update', 'replace', 'delete', 'substring', 'substr'), $content);
 	return $content;

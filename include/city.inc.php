@@ -10,6 +10,7 @@ $city = get_cookie('city');
 $http_host = get_env('host');
 if($city) {
 	list($cityid, $city_domain) = explode('|', $city);
+	$cityid = intval($cityid);
 	if(strpos(DT_PATH, $http_host) === false && strpos($city_domain, $http_host) === false) {
 		$c = $db->get_one("SELECT * FROM {$DT_PRE}city WHERE domain='http://".$http_host."/'");
 		if($c) {

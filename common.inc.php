@@ -31,6 +31,7 @@ define('DT_CHMOD', ($CFG['file_mod'] && !DT_WIN) ? $CFG['file_mod'] : 0);
 define('DT_LANG', $CFG['language']);
 define('DT_KEY', $CFG['authkey']);
 define('DT_CHARSET', $CFG['charset']);
+define('DT_EDITOR', $CFG['editor']);
 define('DT_CACHE', $CFG['cache_dir'] ? $CFG['cache_dir'] : DT_ROOT.'/file/cache');
 define('DT_SKIN', DT_STATIC.'skin/'.$CFG['skin'].'/');
 define('VIP', $CFG['com_vip']);
@@ -140,7 +141,7 @@ $_username = $_company = $_passport = $_truename = '';
 $_groupid = 3;
 $destoon_auth = get_cookie('auth');
 if($destoon_auth) {	
-	$_dauth = explode("\t", decrypt($destoon_auth, md5(DT_KEY.$_SERVER['HTTP_USER_AGENT'])));
+	$_dauth = explode("\t", decrypt($destoon_auth, md5(DT_KEY.$DT_IP)));
 	$_userid = isset($_dauth[0]) ? intval($_dauth[0]) : 0;
 	$_username = isset($_dauth[1]) ? trim($_dauth[1]) : '';
 	$_groupid = isset($_dauth[2]) ? intval($_dauth[2]) : 3;

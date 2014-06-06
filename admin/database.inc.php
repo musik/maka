@@ -4,6 +4,7 @@
 	This is NOT a freeware, use is subject to license.txt
 */
 defined('IN_DESTOON') or exit('Access Denied');
+if(strpos(get_env('self'), '/admin.php') !== false) msg('后台文件名admin.php未修改，此功能已被系统禁用');
 require DT_ROOT.'/include/sql.func.php';
 $menus = array (
     array('数据库备份', '?file='.$file),

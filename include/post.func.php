@@ -524,6 +524,8 @@ function save_local($content) {
 	global $DT, $DT_TIME, $_userid;
 	if($content == '<br type="_moz" />') return '';//FireFox
 	if($content == '&nbsp;') return '';//Chrome
+	$content = preg_replace("/allowScriptAccess=\"always\"/i", "", $content);
+	$content = preg_replace("/allowScriptAccess/i", "allowscr-iptaccess", $content);
 	if(strpos($content, 'data:image') === false) return $content;
 	if(!preg_match_all("/src=([\"|']?)([^ \"'>]+)\\1/i", $content, $matches)) return $content;
 	require_once DT_ROOT.'/include/image.class.php';
