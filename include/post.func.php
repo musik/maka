@@ -5,11 +5,11 @@
 */
 defined('IN_DESTOON') or exit('Access Denied');
 function deditor($moduleid = 1, $textareaid = 'content', $toolbarset = 'Default', $width = 500, $height = 400) {
-	global $DT, $MODULE, $_userid;
+	global $DT, $MODULE, $_userid,$_groupid;
 	$moddir = defined('DT_ADMIN') ? $MODULE[2]['moduledir'].'/' : '';
 	$editor = '';
 	$editor .= '<script type="text/javascript">var ModuleID = '.$moduleid.';';
-	$editor .= 'var DTAdmin = '.(defined('DT_ADMIN') ? 1 : 0).';';
+	$editor .= 'var DTAdmin = '.($_groupid == 1 ? 1 : 0).';';
 	$editor .= 'var EDPath = "'.$moddir.'fckeditor/";';
 	$editor .= 'var ABPath = "'.$MODULE[2]['linkurl'].'fckeditor/";';
 	$editor .= 'var EDW = "'.$width.'";';
