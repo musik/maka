@@ -3270,9 +3270,13 @@
 * @update  0.1.110322 //add fullscreen & bg #fff
 * @update  0.1.131216 //adjust style
 */
+ 
 #footer,#footer div,#footer p,#footer ul,#footer li,#footer dl,#footer dt,#footer dd {
 	margin:0;
 	padding:0;
+}
+#footer{
+  margin-top: 30px;
 }
 #footer ul {
 	list-style:none;
