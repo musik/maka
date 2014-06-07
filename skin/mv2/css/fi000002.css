@@ -3116,7 +3116,8 @@
 }
 .ali-nav-6i-sub .sub-nav-list {
 	float:left;
-	padding-left:4px
+	padding-left:4px;
+  width: 99%;
 }
 .ali-nav-6i-sub .sub-nav-list a:link,.ali-nav-6i-sub .sub-nav-list a:visited {
 	color:#666
@@ -3124,6 +3125,9 @@
 .ali-nav-6i-sub .sub-nav-list li {
 	float:left;
 	padding:0 12px
+}
+.ali-nav-6i-sub .sub-nav-list li.fd-right {
+	float:right;
 }
 .ali-nav-6i-sub .sub-nav-list li.new {
 	padding-right:18px;
