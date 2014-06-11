@@ -20,7 +20,7 @@ a.b:hover {color:#FF6600;}
 a.g:link,a.g:visited,a.g:active {color:#666666;text-decoration:none;}
 a.g:hover {color:#FF6600;}
 /* common */
-.m {margin: 20px auto;width:1190px;background:#FFFFFF;clear:both;}
+.m {margin: 20px auto;width:980px;background:#FFFFFF;clear:both;}
 .head {background:#F1F1F1 url('image/head_bg.png') repeat-x;width:100%;height:31px;position:fixed;z-index:999999;left:0;}
 .head_m {margin:auto;width:980px;padding:7px 0 0 0;color:#666666;}
 .head_s {height:31px;}
@@ -198,9 +198,9 @@ a.g:hover {color:#FF6600;}
 .keylink {font-weight:normal;padding:0 3px 0 3px;}
 #comment_main div {height:100px;background:url('image/loading.gif') no-repeat center center;}
 /* layout */
-.m_l {width:850px;}
+.m_l {width:670px;}
 .m_r {width:300px;}
-.m_n {width:30px;}
+.m_n {width:10px;}
 .m_l_1 {width:790px;}
 .m_r_1 {width:180px;}
 /* left */
