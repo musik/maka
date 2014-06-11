@@ -2,13 +2,13 @@
   <div id="footer-v0">
     <div class="footer-container">
       <div class="ali-pages">
-        <p id="copyright">&copy; 2014 makatong.com</p>
+        <p id="copyright">&copy; 2014 Makatong.com</p>
         <ul>
-	<li><a href="{$MODULE[1][linkurl]}">网站首页</a></li>
+	<li><a rel="nofollow" href="{$MODULE[1][linkurl]}">网站首页</a></li>
 	<!--{tag("table=webpage&condition=item=1 and level=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
 	| <li><a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a></li>
-	| <li><a href="{$EXT[spread_url]}">排名推广</a></li>
-	{if $EXT[ad_enable]} | <li><a href="{$EXT[ad_url]}">广告服务</a></li>{/if}
+	| <li><a href="{$EXT[spread_url]}" rel="nofollow">排名推广</a></li>
+	{if $EXT[ad_enable]} | <li><a href="{$EXT[ad_url]}" rel="nofollow">广告服务</a></li>{/if}
 	{if $EXT[gift_enable]} | <li><a href="{$EXT[gift_url]}">积分换礼</a></li>{/if}
 	{if $EXT[guestbook_enable]} | <li><a href="{$EXT[guestbook_url]}">网站留言</a></li>{/if}
 	{if $EXT[feed_enable]} | <li><a href="{$EXT[feed_url]}">RSS订阅</a></li>{/if}
