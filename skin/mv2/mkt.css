@@ -2,15 +2,12 @@
 html{color:#000;overflow-y:scroll;background:#fff;}body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,fieldset,lengend,button,input,textarea,form,th,td{margin:0;padding:0;}body,button,input,select,textarea{font:12px/1.5 Tahoma,Arial,"\5b8b\4f53",sans-serif;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}address,cite,dfn,em,var{font-style:normal;}code,kbd,pre,samp,tt{font-family:"Courier New",Courier,monospace;}small{font-size:12px;}ul,ol{list-style:none;}a{text-decoration:none;}a:hover{text-decoration:underline;}abbr[title],acronym[title]{border-bottom:1px dotted;cursor:help;}q:before,q:after{content:'';}:focus{outline:0;}legend{color:#000;}fieldset,img{border:none;}button,input,select,textarea{font-size:100%;}table{border-collapse:collapse;border-spacing:0;}hr{border:none;height:1px;*color:#fff;}img{-ms-interpolation-mode:bicubic;}.fd-left{float:left;}.fd-right{float:right;}.fd-clear{clear:both;}.fd-clr{*zoom:1;}.fd-clr:after{display:block;clear:both;height:0;content:"\0020";}.fd-hide{display:none;}.fd-show{display:block;}.fd-locate{position:relative;}.fd-cny{font-family:Helvetica,Arial;}.fd-gray{color:#666;}.fd-bold{font-weight:700;}.screen{width:990px;margin:0 auto;padding:0 5px;}#header,#content,#footer,.layout{*zoom:1;}#header:after,#content:after,#footer:after,.layout:after{display:block;clear:both;height:0;content:"\0020";}.layout .grid{float:left;}.layout .grid-fixed{margin-right:0!important;}.w952{width:952px;margin:0 auto;padding:0 4px;}a:hover{color:#ff7300;}
 
 /**
-* Just, a front-end application framework for trade product line in alibaba.cn
 * @author  Edgar Hoo , edgarhoo@gmail.com
 * @version v0.2
 * @build   120926
 * @uri     http://just.edgarhoo.org/
 * @license MIT License
 *
-* @base    fdev-v4, http://style.c.aliimg.com/fdevlib/css/fdev-v4/core/fdev-float.css
-* @include Vin, http://vin.edgarhoo.org/
 * */
 h1,h2,h3,h4{font-weight:700;}a:hover,a:active{color:#ff7300!important;}
 .layout-space{margin-top:8px;}.layout-space .layout{margin-bottom:8px;}.layout-fixed{margin-bottom:0!important;}.grid-right{float:right!important;}
@@ -28,14 +25,14 @@ display: table;
 text-align: center;
 overflow: hidden;
 font-size: 0;
-*display: block; /* for IE6/7 */
+*display: block; 
 *layout-grid-line:100%;
 }
 .img-vertical .img-wrap{
 display: table-cell;
 vertical-align: middle;
-*display: inline; /* for IE6/7 */
-*writing-mode: tb-rl; /* for IE6/7 */
+*display: inline; 
+*writing-mode: tb-rl; 
 *text-align: center;
 *height: 100%;
 }
@@ -126,4 +123,4 @@ width:980px;
 width:980px!important;
 }
 
-.iepush-banner{background:#7dafd9 url("642106_823742341.png"/*tpa=http://img.china.alibaba.com/cms/upload/2013/601/246/642106_823742341.png*/) repeat-x 0 0}.iepush-banner .iepush-b1{background-repeat:no-repeat;background-position:50% 0;background-image:url("644315_823742341.png"/*tpa=http://img.china.alibaba.com/cms/upload/2013/513/446/644315_823742341.png*/)}.iepush-banner .iepush-b2{width:990px;height:97px;overflow:hidden;margin:0 auto}.iepush-banner .iepush-content{position:relative;float:left;width:966px;height:97px;overflow:hidden;cursor:pointer}.iepush-banner .iepush-logo,.iepush-banner .iepush-car{background:transparent url("644421_823742341.png"/*tpa=http://img.china.alibaba.com/cms/upload/2013/124/446/644421_823742341.png*/) no-repeat 0 0}.iepush-banner .iepush-logo{position:absolute;top:16px;left:526px;width:74px;height:48px;overflow:hidden;background-position:0 -100px;+left:309px;+top:18px;+background-position:0 -50px;_left:60px;_background-position:0 0}.iepush-banner .iepush-car{position:absolute;left:40px;top:72px;width:98px;height:29px;overflow:hidden;background-position:0 -150px;_top:70px;_background:transparent url("638901_823742341.png"/*tpa=http://img.china.alibaba.com/cms/upload/2013/109/836/638901_823742341.png*/) no-repeat 30px 0}.iepush-banner .iepush-text{position:absolute;left:605px;+left:388px;_left:139px;top:13px;width:0;height:63px;overflow:hidden;background:transparent url("642109_823742341.png"/*tpa=http://img.china.alibaba.com/cms/upload/2013/901/246/642109_823742341.png*/) no-repeat;font-size:12px;line-height:1.5;color:#558bb9}.iepush-banner .iepush-text-inner{width:180px;overflow:hidden;margin:3px 8px 0}.iepush-banner .iepush-cls{float:right;width:21px;height:21px;line-height:21px;margin-top:8px;font-size:18px;font-family:Tahoma;text-align:center}.iepush-banner a:link,.iepush-banner a:visited{color:#74a9d3}.iepush-banner a:hover{color:#ff7300;text-decoration:none}
+.iepush-banner{background:#7dafd9 url("642106_823742341.png") no-repeat;font-size:12px;line-height:1.5;color:#558bb9}.iepush-banner .iepush-text-inner{width:180px;overflow:hidden;margin:3px 8px 0}.iepush-banner .iepush-cls{float:right;width:21px;height:21px;line-height:21px;margin-top:8px;font-size:18px;font-family:Tahoma;text-align:center}.iepush-banner a:link,.iepush-banner a:visited{color:#74a9d3}.iepush-banner a:hover{color:#ff7300;text-decoration:none}
