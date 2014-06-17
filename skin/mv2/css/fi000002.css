@@ -205,7 +205,6 @@
 	color:#666
 }
 .floor-food-first-screen .mod-trends {
-	height:120px
 }
 .floor-food-first-screen .mod-trends .header {
 	border-bottom:1px solid #e6e6e6;
@@ -3360,4 +3359,64 @@
 }
 .hidden{
   display: none;
+}
+.cat-pic{
+  float: left;
+  width: 190px;  
+  height: 328px;
+  background: url(categories.jpg) no-repeat;
+}
+.app-headerx{
+  border-bottom: 2px solid #109e25;
+  margin-top: 26px;
+}
+.app-news{
+  float: left;
+  width: 325px;
+  border: 1px solid #ddd;
+  border-width: 0 1px 1px 0;
+}
+.app-news-first{
+  margin-left: 0;
+  border-left: 1px solid #ddd;
+}
+.app-news .header{
+  height: 45px;
+  line-height: 45px;
+  border-bottom: 1px solid #ddd;
+  padding-left: 14px;
+}
+.app-news .header a{
+  font-size: 20px;
+  color: #333;
+}
+.app-news .content{
+  padding: 10px;
+}
+.app-news .content ul{
+  line-height: 2em;
+}
+.app-news .content ul li a{
+  color: #333;
+}
+.mod-sells .header{
+  background: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  padding: 8px 10px;
+}
+.mod-sells .header-top{
+  border-top: 0;
+}
+.mod-sells .content{
+  margin: 10px;
+}
+.mod-sells li{
+  line-height: 1.8em;
+}
+.floor-food-first-screen .extra .mod-sells a{
+  color: #666;
+}
+.floor-food-first-screen .extra .mod-sells a:visited{
+  color: #999;
 }
