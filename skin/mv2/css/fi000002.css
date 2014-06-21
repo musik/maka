@@ -79,7 +79,7 @@
 }
 .floor-food-first-screen .main .bottom-col .pipeline {
 	float:left;
-	width:253px;
+	width:274px;
 	height:150px;
 	overflow:hidden;
 	border-left:1px dotted #cecccf;
@@ -87,7 +87,7 @@
 }
 .floor-food-first-screen .main .bottom-col .pipeline-first {
 	border-left:0 none;
-	width:252px
+	width:275px;
 }
 .floor-food-first-screen .mod-com-silde .content {
 	height:125px;
@@ -612,7 +612,9 @@
 	height:55px;
 }
 .floor-fz-first-screen .mod-category .content {
-	padding-top:46px;
+}
+.floor-fz-first-screen .mod-category .content .zone-cat-first {
+  padding-top: 46px;
 }
 .floor-fz-first-screen .mod-category-sub .content {
 	padding-top:56px;

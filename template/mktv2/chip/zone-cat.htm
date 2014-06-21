@@ -1,9 +1,11 @@
 {php $arr =array(21=>'动态',23=>'技术',24=>'功效')}
+{php $j = 0}
 {loop $arr $mid $label}
+{php $j++}
 {php $cmod = $MODULE[$mid]}
 {php $ccats = get_maincat(0,$mid,1)}
-<div class="zone-cat zone-cat-first   zone-cat-xiuxianshipin zone-cat-selected2"
-  data-panel="float-cat-container-xiuxianshipin">
+<div class="zone-cat {if $j==1}zone-cat-first{/if} zone-cat-{$cmod[moduledir]} zone-cat-selected2"
+  data-panel="float-cat-container-{$cmod[moduledir]}">
   <div class="zone-wrap">
     <div class="zone-header">
       <h3 class="ms-yh">
