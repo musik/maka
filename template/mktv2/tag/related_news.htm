@@ -1,0 +1,11 @@
+{if $tags}
+		<div class="rank_list">
+<ul>
+{loop $tags $i $t}
+<li>{if $datetype}<span class="f_r px11">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}{if $showcat}<a href="{$t[caturl]}"{if $target} target="{$target}"{/if}{if $class} class="{$class}"{/if}>[{$t[catname]}]</a> {/if}<a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}{if $class} class="{$class}"{/if} title="{$t[alt]}">{if $len}{dsubstr($t[title],$len)}{else}{$t[title]}{/if}</a></li>
+{/loop}
+</ul>
+</div>
+{else}
+暂无相关知识
+{/if}
