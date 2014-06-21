@@ -16,8 +16,6 @@
         <meta http-equiv="mobile-agent" content="format=xhtml; url={$head_mobile}">
         <meta http-equiv="mobile-agent" content="format=html5; url={$head_mobile}">
         {/if}
-        <link rel="stylesheet" href="{DT_SKIN}css/fi000002.css" />
-        </script>
 <link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
 <link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
 {if $head_canonical}
@@ -29,6 +27,7 @@
 {if !$nostyle}
 <link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
 {/if}
+        <link rel="stylesheet" href="{DT_SKIN}css/fi000002.css" />
 {if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
 {if $CSS}
 {loop $CSS $css}
@@ -44,6 +43,7 @@
 <script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
 <script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
 <script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/global.js"></script>
 {if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
 {if $JS}
 {loop $JS $js}
@@ -99,47 +99,20 @@ document.onselectstart=function(e){return false;};
                     </div>
                 </div>
             </div>
+<div class="m head_s" id="destoon_space"></div>
+<div class="m"><div id="search_tips" style="display:none;"></div></div>
+<div class="m">
+	<div id="search_module" style="display:none;" onmouseout="Dh('search_module');" onmouseover="Ds('search_module');">
+	{loop $MODULE $m}{if $m[ismenu] && !$m[islink]}<a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{$m[name]}')">{$m[name]}</a>{/if}{/loop}
+	</div>
+</div>
             <div id="header" class="mod-spm" data-spm="1724188157">
                 <div id="ali-masthead-5i" class="w952 screen fd-clr food">
                     <div class="ali-logo">
                         <a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a>
                      
                     </div>
-                    <div class="ali-search">
-                        <form id="destoon_search" action="{$MODULE[$searchid][linkurl]}search.php" onsubmit="return Dsearch(1);">
-                        <input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid"/>
-	<input type="hidden" name="spread" value="0" id="destoon_spread"/>
-                            <fieldset>
-                                <legend>
-                                    搜索
-                                </legend>
-                                <div class="alisearch-container">
-                                    <div class="alisearch-box">
-                                        <div class="alisearch-type">
-                                            <ul>
-                                            {loop $MODULE $m}
-                                            {if $m[ismenu] && !$m[islink]}
-                                            <li><a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{$m[name]}')">{$m[name]}</a></li>
-                                            {/if}
-                                            {/loop}
-                                            </ul>
-                                        </div>
-                                        <div class="alisearch-keywords">
-                                            <input class="empty" accesskey="s" maxlength="50" name="kw"
-                                            x-webkit-speech speech x-webkit-grammar="builtin:translate" 
-                                            value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"
-                                            {if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if}  />
-                                        </div>
-                                    </div>
-                                    <div class="alisearch-action">
-                                        <button class="market" type="submit">
-                                            搜索
-                                        </button>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
+                    {template 'head_search','chip'}
                 </div>
                 <div class="ali-nav-6i" id="ali-nav-6i">
                     <div class="ali-nav-6i-main  ali-nav-food-main">

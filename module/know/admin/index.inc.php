@@ -131,6 +131,7 @@ switch($action) {
 			$item = $do->get_one();
 			extract($item);
 			$addtime = timetodate($addtime);
+			$totime = timetodate($totime);
 			$menuon = array('4', '3', '2', '1');
 			$menuid = $menuon[$status];
 			$tname = '修改'.$MOD['name'];

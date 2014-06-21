@@ -39,7 +39,7 @@
 				<div class="know_sch_btn">
 				<input type="submit" value="搜索答案" onclick="Dd('know_typeid').value=99;"/>&nbsp;
 				<input type="submit" value="我要回答" onclick="Dd('know_typeid').value=3;"/>&nbsp;
-				<input type="button" value="我要提问" onclick="if(know_sch_check()){Dd('ask_kw').value=Dd('know_kw').value;Dd('ask_form').submit();}"/>&nbsp;
+				<input type="button" value="我要提问" onclick="Dd('ask_kw').value=Dd('know_kw').value;if(Dd('ask_kw').value=='请输入问题')Dd('ask_kw').value='';Dd('ask_form').submit();"/>&nbsp;
 				</div>
 				</form>
 				<script type="text/javascript">

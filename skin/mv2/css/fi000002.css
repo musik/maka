@@ -1924,7 +1924,7 @@
 	font-family:"Microsoft YaHei",SimHei,"WenQuanYi Micro Hei",STHeiti;
 }
 #ali-masthead-5i .ali-market .ali-market-more,#ali-masthead-5i .alisearch-type ul {
-	background:url("485782_1643551954.png") no-repeat;
+	/*background:url("485782_1643551954.png") no-repeat 100% 0;*/
 }
 #ali-masthead-5i {
 	padding:16px 4px;
@@ -2131,14 +2131,14 @@
 #ali-masthead-5i .ali-search .alisearch-container .alisearch-type {
 	float:left;
 	position:relative;
-	width:66px;
+	width:78px;
 	height:30px;
 	z-index:994;
 }
 #ali-masthead-5i .ali-search .alisearch-container .alisearch-type ul {
 	position:absolute;
 	height:30px;
-	width:48px;
+	width:60px;
 	padding:0 8px 0 8px;
 	border-left:1px solid #EEE;
 	border-right:1px solid #EEE;
@@ -2153,7 +2153,7 @@
 	z-index:995;
 }
 #ali-masthead-5i .ali-search .alisearch-container .alisearch-type li {
-	width:48px;
+	width:60px;
 	height:30px;
 	line-height:30px;
 }
@@ -3391,7 +3391,7 @@
   color: #333;
 }
 .app-news .content{
-  padding: 10px;
+  margin: 10px;
 }
 .app-news .content ul{
   line-height: 2em;
@@ -3419,4 +3419,16 @@
 }
 .floor-food-first-screen .extra .mod-sells a:visited{
   color: #999;
+}
+#destoon_space{
+  display: none;
+}
+#box_doc .content{
+  padding: 0;
+  font-size: 12px;
+}
+#box_doc .content a:link,
+#box_doc .content a:visited,
+#box_doc .content a:active{
+  text-decoration: none;
 }

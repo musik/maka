@@ -75,6 +75,15 @@ var property_admin = 1;
 <td><input name="post[username]" type="text"  size="20" value="<?php echo $username;?>" id="username"/> <a href="javascript:_user(Dd('username').value);" class="t">[资料]</a> <span id="dusername" class="f_red"></span></td>
 </tr>
 <tr>
+<td class="tl"><span class="f_pro">*</span> 进度</td>
+<td>
+<input type="radio" name="post[process]" value="3" <?php if($process == 3) echo 'checked';?> id="process_3"/><label for="process_3"> 已解决</label>
+<input type="radio" name="post[process]" value="2" <?php if($process == 2) echo 'checked';?> id="process_2"/><label for="process_2">  投票中</label>
+<input type="radio" name="post[process]" value="1" <?php if($process == 1) echo 'checked';?> id="process_1"/><label for="process_1">  待解决</label>
+<input type="radio" name="post[process]" value="0" <?php if($process == 0) echo 'checked';?> id="process_0"/><label for="process_0"> 已关闭</label>
+</td>
+</tr>
+<tr>
 <td class="tl"><span class="f_hid">*</span> 匿名设定</td>
 <td>
 <input type="radio" name="post[hidden]" value="1" <?php if($hidden == 1) echo 'checked';?> id="hidden_1"/><label for="hidden_1">  是</label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -97,6 +106,10 @@ var property_admin = 1;
 <tr>
 <td class="tl"><span class="f_hid">*</span> 添加时间</td>
 <td><input type="text" size="22" name="post[addtime]" value="<?php echo $addtime;?>"/></td>
+</tr>
+<tr>
+<td class="tl"><span class="f_hid">*</span> 过期时间</td>
+<td><input type="text" size="22" name="post[totime]" value="<?php echo $totime;?>"/></td>
 </tr>
 <?php if($DT['city']) { ?>
 <tr>

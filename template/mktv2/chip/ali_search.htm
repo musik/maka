@@ -1,0 +1,36 @@
+
+                    <div class="ali-search">
+                        <form id="destoon_search" action="{$MODULE[$searchid][linkurl]}search.php" onsubmit="return Dsearch(1);">
+                        <input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid"/>
+	<input type="hidden" name="spread" value="0" id="destoon_spread"/>
+                            <fieldset>
+                                <legend>
+                                    搜索
+                                </legend>
+                                <div class="alisearch-container">
+                                    <div class="alisearch-box">
+                                        <div class="alisearch-type">
+                                            <ul id="ms">
+                                            {loop $MODULE $m}
+                                            {if $m[ismenu] && !$m[islink]}
+                                            <li><a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{$m[name]}')">{$m[name]}</a></li>
+                                            {/if}
+                                            {/loop}
+                                            </ul>
+                                        </div>
+                                        <div class="alisearch-keywords">
+                                            <input class="empty" accesskey="s" maxlength="50" name="kw"
+                                            x-webkit-speech speech x-webkit-grammar="builtin:translate" 
+                                            value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"
+                                            {if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if}  />
+                                        </div>
+                                    </div>
+                                    <div class="alisearch-action">
+                                        <button class="market" type="submit">
+                                            搜索
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>

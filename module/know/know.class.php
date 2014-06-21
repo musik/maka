@@ -30,6 +30,7 @@ class know {
 	function set($post) {
 		global $MOD, $DT_TIME, $DT_IP, $_username, $_userid;
 		$post['addtime'] = (isset($post['addtime']) && $post['addtime']) ? strtotime($post['addtime']) : $DT_TIME;
+		$post['totime'] = (isset($post['totime']) && $post['totime']) ? strtotime($post['totime']) : $DT_TIME;
 		$post['edittime'] = $DT_TIME;
 		$post['title'] = trim($post['title']);
 		$post['credit'] = intval($post['credit']);
