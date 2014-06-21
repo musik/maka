@@ -46,7 +46,7 @@ a.g:hover {color:#FF6600;}
 #search_module a {display:block;height:20px;padding:1px 10px 1px 10px;color:#333333;}
 #search_module a:hover {background:#E4F1F7;font-weight:bold;}
 
-#search_tips {z-index:1000;position:absolute;width:340px;overflow:hidden;cursor:pointer;margin:50px 0 0 200px;font-size:13px;line-height:20px;color:#666666;background:#FFFFFF;border:#444444 1px solid;}
+#search_tips {z-index:1000;position:absolute;width:340px;overflow:hidden;cursor:pointer;margin:68px 0 0 419px;font-size:13px;line-height:20px;color:#666666;background:#FFFFFF;border:#444444 1px solid;}
 #search_tips div {height:20px;padding:1px 8px 1px 8px;clear:both;overflow:hidden;}
 #search_tips div span {float:right;font-size:12px;}
 #search_tips label {display:block;width:100%;background:#FAFAFA;font-size:12px;color:#0000CC;text-align:right;}

@@ -3434,3 +3434,9 @@
 #box_doc .content a:active{
   text-decoration: none;
 }
+#doc{
+  margin-bottom: 20px;
+}
+#box_doc{
+  margin-top: -20px;
+}
