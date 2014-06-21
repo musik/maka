@@ -10,18 +10,6 @@
     {$seo_description} 
     </p>
     </div>
-		<div class="category">
-			<p><img src="{DT_SKIN}image/arrow.gif" width="17" height="12" alt=""/> <strong>按行业浏览</strong></p>
-			<div>
-			<table width="100%" cellpadding="3">
-			{loop $maincat $k $v}
-			{if $k%$MOD[page_subcat]==0}<tr>{/if}
-			<td{if $v[catid]==$catid} class="f_b"{/if}><a href="{$MOD[linkurl]}{$v[linkurl]}">{set_style($v[catname],$v[style])}</a>{if !$cityid} <span class="f_gray px10">({$v[item]})</span>{/if}</td>
-			{if $k%$MOD[page_subcat]==($MOD[page_subcat]-1)}</tr>{/if}
-			{/loop}
-			</table>
-			</div>
-		</div>
 		{if $CP}
 		{loop $PPT $p}
 		<div class="ppt">
@@ -113,11 +101,13 @@
 <div class="m_n f_l">&nbsp;</div>
 <div class="m_r_1 f_l">
 	<div class="sponsor">{ad($moduleid,$catid,$kw,7)}</div>
-	<div class="box_head"><div><strong>相关知识</strong></div></div>
+  {if $catname != "其它"}
+  <div class="box_head"><div><strong>{$catname}相关知识</strong></div></div>
 	<div class="box_body">
-      <!--{tag("moduleid=24&condition=status=3 and keyword like '%$catname%'&pagesize=10&template=related_news")}-->
+      <!--{tag("moduleid=24&condition=status=3 and keyword like '%$catname%'&pagesize=10&template=related_news&target=_blank")}-->
 	</div>
 	<div class="b10">&nbsp;</div>
+  {/if}
 	<div class="box_head"><div><strong>本周搜索排行</strong></div></div>
 	<div class="box_body">
 		<div class="rank_list">
