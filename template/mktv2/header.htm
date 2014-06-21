@@ -40,11 +40,7 @@
 {if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
 <script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
 <script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
-<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
-<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
-<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
 <script type="text/javascript" src="{DT_SKIN}js/global.js"></script>
-{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
 {if $JS}
 {loop $JS $js}
 <script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
