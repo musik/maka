@@ -3378,13 +3378,14 @@
 }
 .app-news{
   float: left;
-  width: 325px;
+  width: 244px;
   border: 1px solid #ddd;
   border-width: 0 1px 1px 0;
 }
 .app-news-first{
   margin-left: 0;
   border-left: 1px solid #ddd;
+  width: 243px;
 }
 .app-news .header{
   height: 45px;
@@ -3401,6 +3402,10 @@
 }
 .app-news .content ul{
   line-height: 2em;
+}
+.app-news .content ul li{
+  height: 2em;
+  overflow: hidden;
 }
 .app-news .content ul li a{
   color: #333;
