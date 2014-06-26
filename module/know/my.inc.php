@@ -67,8 +67,9 @@ switch($action) {
 				$need_check =  $MOD['check_add'] == 2 ? $MG['check'] : $MOD['check_add'];
 				$post['status'] = get_status(3, $need_check);
 				$post['hits'] = 0;
-        if(!($_groupid == 1 && !empty($post['username'])))
-          $post['username'] = $_username;
+        $post['username'] = $_username;
+        if($_groupid == 1 && $post['guest'])
+          $post['username'] = '';
 				$post['areaid'] = $cityid;
 				
 				if($could_color && $color && $_credit > $MOD['credit_color']) {

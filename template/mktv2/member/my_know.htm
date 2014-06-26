@@ -80,10 +80,16 @@ var property_admin = 0;
 您可以对问题设定匿名，但您需要付出{$MOD[credit_hidden]}{$DT[credit_name]} <span id="dhidden" class="f_red"></span></td>
 </tr>
 {if $_groupid == 1}
-  <tr>
-  <td class="tl">设置发布者名称</td>
-<td class="tr"><input name="post[username]" type="text" id="username" size="18" value="游客"/> <span id="dusername" class="f_red"></span></td>
-  </tr>
+<tr>
+<td class="tl">设置为访客发布</td>
+<td class="tr">
+<input type="checkbox" name="post[guest]" value="1" checked id="guest"/>
+<span id="dguest" class="f_red"></span></td>
+</tr>
+  <!--<tr>-->
+  <!--<td class="tl">设置发布者名称</td>-->
+<!--<td class="tr"><input name="post[username]" type="text" id="username" size="18" value="游客"/> <span id="dusername" class="f_red"></span></td>-->
+  <!--</tr>-->
 {/if}
 {/if}
 {if $fee_add}

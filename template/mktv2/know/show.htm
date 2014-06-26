@@ -22,7 +22,7 @@
 		{if $item[username]}
 		<a href="{$MOD[linkurl]}{rewrite('search.php?username='.$item['username'])}" class="b" rel="nofollow"><strong>{$item[username]}</strong></a>
 		{else}
-		<strong title="{hide_ip($item[ip])}">{ip2area($item[ip])}访客</strong>
+		<strong title="{hide_ip($item[ip])}">玛卡通网友</strong>
 		{/if}
 	</li>
 	<li><img src="{useravatar($item[username], 'large')}" alt=""/></li>
