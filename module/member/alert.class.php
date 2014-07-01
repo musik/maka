@@ -25,7 +25,7 @@ class alert {
 		global $MOD, $DT_TIME, $_username;
 		$post['edittime'] = $DT_TIME;
 		$post['editor'] = $_username;
-		if(!defined('DT_ADMIN')) $post = dhtmlspecialchars($post);
+		$post = dhtmlspecialchars($post);
 		return array_map("trim", $post);
 	}
 

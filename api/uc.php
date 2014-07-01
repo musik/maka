@@ -38,7 +38,7 @@ switch($action) {
 		if(!$user || $user['groupid'] == 2 || $user['groupid'] == 4) exit('-1');
 		if($_username == $user['username']) exit('1');
 		$cookietime = $DT_TIME + ($cookietime ? $cookietime : 86400*7);
-		$destoon_auth = encrypt($user['userid']."\t".$user['username']."\t".$user['groupid']."\t".$user['password']."\t".$user['admin'], md5(DT_KEY.$DT_IP));
+		$destoon_auth = encrypt($user['userid']."\t".$user['username']."\t".$user['groupid']."\t".$user['password']."\t".$user['admin']);
 		ob_clean() ;
 		header('P3P: CP="CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"');
 		set_cookie('auth', $destoon_auth, $cookietime);

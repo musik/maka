@@ -21,7 +21,7 @@ $data .= '<updatePeri>'.$MOD['baidunews_update'].'</updatePeri>';
 foreach($news as $v) {
 	$mid = $v['moduleid'];
 	$url = linkurl($v['linkurl']);
-	$result = $db->query("SELECT * FROM {$DT_PRE}article_{$mid} a,{$DT_PRE}article_data_{$mid} d WHERE a.itemid=d.itemid ORDER BY a.addtime DESC LIMIT $news_num");
+	$result = $db->query("SELECT * FROM {$DT_PRE}article_{$mid} a,{$DT_PRE}article_data_{$mid} d WHERE a.itemid=d.itemid AND a.status=3 ORDER BY a.addtime DESC LIMIT $news_num");
 	while($r = $db->fetch_array($result)) {
 		$C = get_cat($r['catid']);
 		$data .= '<item>';

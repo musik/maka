@@ -352,7 +352,7 @@ function level_select($name, $title = '', $level = 0, $extend = '') {
 }
 
 function is_url($url) {
-	return preg_match("/^[http|https]\:\/\/[a-z0-9\/\.\#\&\?\;\,]{4,}$/", $url);
+	return preg_match("/^(http|https)\:\/\/[a-z0-9]{1,}\.[a-z0-9\/\.\#\&\?\;\,\=\%]{2,}$/", $url);
 }
 
 function is_email($email) {

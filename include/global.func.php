@@ -36,8 +36,8 @@ function dsafe($string) {
 		$string = preg_replace("/\/\*([\s\S]*?)\*\//", "", $string);
 		$string = preg_replace("/&#([a-z0-9]+)([;]*)/i", "", $string);
 		if(preg_match("/&#([a-z0-9]+)([;]*)/i", $string)) return nl2br(strip_tags($string));
-		$match = array("/s[[:space:]]*c[[:space:]]*r[[:space:]]*i[[:space:]]*p[[:space:]]*t/i","/e[\\\]*x[\\\]*p[\\\]*r[\\\]*e[\\\]*s[\\\]*s[\\\]*i[\\\]*o[\\\]*n/i","/on([a-z]{2,})([\(|\=|[:space:]]+)/i","/about/i","/frame/i","/link/i","/import/i","/meta/i","/textarea/i","/eval/i","/data/i","/alert/i","/confirm/i","/prompt/i","/cookie/i","/document/i","/newline/i","/colon/i","/\\\x/i");
-		$replace = array("s<em></em>cript","ex<em></em>pression","o<em></em>n\\1\\2","a<em></em>bout","f<em></em>rame","l<em></em>ink","im<em></em>port","me<em></em>ta","text<em></em>area","e<em></em>val","da<em></em>ta","a<em></em>lert","/con<em></em>firm/i","prom<em></em>pt","coo<em></em>kie","docu<em></em>ment","new<em></em>line","co<em></em>lon","\<em></em>x");
+		$match = array("/s[\s]*c[\s]*r[\s]*i[\s]*p[\s]*t/i","/d[\s]*a[\s]*t[\s]*a/i","/b[\s]*a[\s]*s[\s]*e/i","/e[\\\]*x[\\\]*p[\\\]*r[\\\]*e[\\\]*s[\\\]*s[\\\]*i[\\\]*o[\\\]*n/i","/on([a-z]{2,})([\(|\=|\s]+)/i","/about/i","/frame/i","/link/i","/import/i","/meta/i","/textarea/i","/eval/i","/alert/i","/confirm/i","/prompt/i","/cookie/i","/document/i","/newline/i","/colon/i","/\\\x/i");
+		$replace = array("s<em></em>cript","da<em></em>ta","ba<em></em>se","ex<em></em>pression","o<em></em>n\\1\\2","a<em></em>bout","f<em></em>rame","l<em></em>ink","im<em></em>port","me<em></em>ta","text<em></em>area","e<em></em>val","a<em></em>lert","/con<em></em>firm/i","prom<em></em>pt","coo<em></em>kie","docu<em></em>ment","new<em></em>line","co<em></em>lon","\<em></em>x");
 		return preg_replace($match, $replace, $string);
 	}
 }
@@ -473,16 +473,6 @@ function ip2area($ip, $type = '') {
 
 function mobile2area($mobile) {
 	return '';
-	$area = '';
-	if(is_mobile($mobile)) {
-		$data = file_get("http://www.yodao.com/smartresult-xml/search.s?type=mobile&q=".$mobile);
-		if(strpos($data, '<location>') !== false) {
-			$t1 = explode('<location>', $data);
-			$t2 = explode('</location>', $t1[1]);
-			$area = $t2[0];
-		}
-	}
-	return $area ? convert($area, 'gbk', DT_CHARSET) : '';
 }
 
 function banip($IP) {
@@ -881,7 +871,7 @@ function imgurl($imgurl = '', $width = '') {
 	if($imgurl) {
 		return strpos($imgurl, '://') === false ? DT_PATH.'/file/upload/'.$imgurl : $imgurl;
 	} else {
-		return $width ? DT_SKIN.'image/nopic'.$width.'.gif' : '';
+		return DT_SKIN.'image/nopic'.$width.'.gif';
 	}
 }
 
@@ -1056,10 +1046,28 @@ function rewrite($url, $encode = 0) {
 }
 
 function timetodate($time = 0, $type = 6) {
-	if(!$time) {global $DT_TIME; $time = $DT_TIME;}
+	if(!$time) $time = $GLOBALS['DT_TIME'];
 	$types = array('Y-m-d', 'Y', 'm-d', 'Y-m-d', 'm-d H:i', 'Y-m-d H:i', 'Y-m-d H:i:s');
 	if(isset($types[$type])) $type = $types[$type];
-	return date($type, $time);
+	$date = '';
+	if($time > 2147212800) {		
+		if(class_exists('DateTime')) {
+			$D = new DateTime('@'.($time - 3600 * intval(str_replace('Etc/GMT', '', $GLOBALS['CFG']['timezone']))));
+			$date = $D->format($type);
+		}
+	}
+	return $date ? $date : date($type, $time);
+}
+
+function datetotime($date) {
+	$time = strtotime($date);
+	if($time === false) {
+		if(class_exists('DateTime')) {
+			$D = new DateTime($date);
+			$time = $D->format('U');
+		}
+	}
+	return $time;
 }
 
 function log_write($message, $type = 'php', $force = 0) {

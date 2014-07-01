@@ -23,7 +23,7 @@ class favorite {
 	}
 
 	function set($post) {
-		if(!defined('DT_ADMIN')) $post = dhtmlspecialchars($post);
+		$post = dhtmlspecialchars($post);
 		return array_map("trim", $post);
 	}
 

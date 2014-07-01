@@ -25,7 +25,7 @@ class friend {
 		if($post['email'] && !is_email($post['email'])) $post['email'] = '';
 		if($post['msn'] && !is_email($post['msn'])) $post['msn'] = '';
 		if($post['qq'] && !is_numeric($post['qq'])) $post['qq'] = '';
-		if(!defined('DT_ADMIN')) $post = dhtmlspecialchars($post);
+		$post = dhtmlspecialchars($post);
 		return array_map("trim", $post);
 	}
 

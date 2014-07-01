@@ -14,8 +14,13 @@ if(DT_DEBUG) {
 if(isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) exit('Request Denied');
 @set_magic_quotes_runtime(0);
 $MQG = get_magic_quotes_gpc();
-foreach(array('_POST', '_GET', '_COOKIE') as $__R) {
-	if($$__R) { foreach($$__R as $__k => $__v) { if(isset($$__k) && $$__k == $__v) unset($$__k); } }
+foreach(array('_POST', '_GET') as $__R) {
+	if($$__R) { 
+		foreach($$__R as $__k => $__v) {
+			if(substr($__k, 0, 1) == '_') unset($$__R);
+			if(isset($$__k) && $$__k == $__v) unset($$__k);
+		}
+	}
 }
 define('IN_DESTOON', true);
 define('IN_ADMIN', defined('DT_ADMIN') ? true : false);
@@ -31,7 +36,6 @@ define('DT_CHMOD', ($CFG['file_mod'] && !DT_WIN) ? $CFG['file_mod'] : 0);
 define('DT_LANG', $CFG['language']);
 define('DT_KEY', $CFG['authkey']);
 define('DT_CHARSET', $CFG['charset']);
-define('DT_EDITOR', $CFG['editor']);
 define('DT_CACHE', $CFG['cache_dir'] ? $CFG['cache_dir'] : DT_ROOT.'/file/cache');
 define('DT_SKIN', DT_STATIC.'skin/'.$CFG['skin'].'/');
 define('VIP', $CFG['com_vip']);
@@ -93,7 +97,7 @@ $MODULE = $CACHE['module'];
 $EXT = cache_read('module-3.php');
 $lazy = $DT['lazy'] ? 1 : 0;
 if(!IN_ADMIN && ($DT['close'] || $DT['defend_cc'] || $DT['defend_reload'] || $DT['defend_proxy'])) include DT_ROOT.'/include/defend.inc.php';
-unset($CACHE, $CFG['timezone'], $CFG['db_host'], $CFG['db_user'], $CFG['db_pass'], $db_class, $db_file);
+unset($CACHE, $CFG['db_host'], $CFG['db_user'], $CFG['db_pass'], $db_class, $db_file);
 $moduleid = isset($moduleid) ? intval($moduleid) : 1;
 if($moduleid > 1) {
 	isset($MODULE[$moduleid]) or dheader(DT_PATH);
@@ -141,7 +145,7 @@ $_username = $_company = $_passport = $_truename = '';
 $_groupid = 3;
 $destoon_auth = get_cookie('auth');
 if($destoon_auth) {	
-	$_dauth = explode("\t", decrypt($destoon_auth, md5(DT_KEY.$DT_IP)));
+	$_dauth = explode("\t", decrypt($destoon_auth));
 	$_userid = isset($_dauth[0]) ? intval($_dauth[0]) : 0;
 	$_username = isset($_dauth[1]) ? trim($_dauth[1]) : '';
 	$_groupid = isset($_dauth[2]) ? intval($_dauth[2]) : 3;
@@ -174,10 +178,7 @@ if(!IN_ADMIN) {
 			$db->query("DELETE FROM {$DT_PRE}online WHERE lasttime<$lastime");
 		}
 	}
-	if($DT_BOT) {
-		if($moduleid == 4) $MOD['order'] = 'userid DESC';
-		if($moduleid > 4) $MOD['order'] = 'addtime DESC';
-	}
+	if($DT_BOT && $moduleid >= 4) $MOD['order'] = $moduleid == 4 ? 'userid DESC' : 'addtime DESC';
 }
 $MG = cache_read('group-'.$_groupid.'.php');
 ?>

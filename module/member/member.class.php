@@ -373,7 +373,7 @@ class member {
 			credit_record($login_username, $MOD['credit_login'], 'system', $L['member_record_login'], $DT_IP);
 		}
 		$cookietime = $DT_TIME + ($login_cookietime ? intval($login_cookietime) : 86400*7);
-		$auth = encrypt($user['userid']."\t".$user['username']."\t".$user['groupid']."\t".$user['password']."\t".$user['admin'], md5(DT_KEY.$DT_IP));
+		$auth = encrypt($user['userid']."\t".$user['username']."\t".$user['groupid']."\t".$user['password']."\t".$user['admin']);
 		set_cookie('auth', $auth, $cookietime);
 		set_cookie('userid', $user['userid'], $cookietime);
 		set_cookie('username', $user['username'], $DT_TIME + 86400*365);

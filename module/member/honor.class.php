@@ -21,20 +21,20 @@ class honor {
 		if(!$post['authority']) return $this->_($L['honor_pass_authority']);
 		if(!$post['thumb']) return $this->_($L['honor_pass_thumb']);
 		if(!$post['fromtime'] || !is_date($post['fromtime'])) return $this->_($L['honor_pass_fromdate']);
-		if(strtotime($post['fromtime'].' 00:00:00') > $DT_TIME) return $this->_($L['honor_pass_fromdate_error']);
+		if(datetotime($post['fromtime'].' 00:00:00') > $DT_TIME) return $this->_($L['honor_pass_fromdate_error']);
 		if($post['totime']) {
 			if(!is_date($post['totime'])) return $this->_($L['honor_pass_todate']);
-			if(strtotime($post['totime'].' 23:59:59') < $DT_TIME) return $this->_($L['honor_pass_todate_error']);
+			if(datetotime($post['totime'].' 23:59:59') < $DT_TIME) return $this->_($L['honor_pass_todate_error']);
 		}
 		return true;
 	}
 
 	function set($post) {
 		global $MOD, $DT_TIME, $_username, $_userid;
-		$post['addtime'] = (isset($post['addtime']) && $post['addtime']) ? strtotime($post['addtime']) : $DT_TIME;
+		$post['addtime'] = (isset($post['addtime']) && $post['addtime']) ? datetotime($post['addtime']) : $DT_TIME;
 		$post['edittime'] = $DT_TIME;
-		$post['fromtime'] = strtotime($post['fromtime'].' 00:00:00');
-		$post['totime'] = $post['totime'] ? strtotime($post['totime'].' 23:59:59') : 0;
+		$post['fromtime'] = datetotime($post['fromtime'].' 00:00:00');
+		$post['totime'] = $post['totime'] ? datetotime($post['totime'].' 23:59:59') : 0;
 		$post['title'] = trim($post['title']);
 		clear_upload($post['content'].$post['thumb']);
 		if($this->itemid) {

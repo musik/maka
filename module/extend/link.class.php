@@ -19,7 +19,7 @@ class dlink {
 		if(!is_array($post)) return false;
 		if(!$post['typeid']) return $this->_($L['link_pass_type']);
 		if(!$post['title']) return $this->_($L['link_pass_site']);
-		if(!$post['linkurl']) return $this->_($L['link_pass_url']);
+		if(!is_url($post['linkurl'])) return $this->_($L['link_pass_url']);
 		return true;
 	}
 
