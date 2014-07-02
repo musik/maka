@@ -3452,3 +3452,16 @@
 .textad0{
   padding: 20px 0;
 }
+.cats-title{
+  float: left;
+  width: 90px;
+  height: 24px;
+  margin-top: 6px;
+  background: url(catsbg.jpg) 0 0  no-repeat;
+}
+.mod-food-common-floor .app-header h2 a{
+  width: auto;
+}
+.mod-food-common-floor .app-header h2 .san{
+  margin-left: 3px;
+}
