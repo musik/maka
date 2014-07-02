@@ -3,7 +3,7 @@
 	<input type="hidden" name="spread" value="0" id="destoon_spread"/>
 	<div class="head_search" onmouseover="this.className='head_search_on';" onmouseout="this.className='head_search';">
 		<div>
-			<input name="kw" id="destoon_kw" type="text" class="search_i" value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech/><input type="text" id="destoon_select" class="search_m" value="{$MODULE[$searchid][name]}" readonly onfocus="this.blur();" onclick="$('#search_module').fadeIn('fast');"/><input type="submit" value=" " class="search_s"/>
+			<input name="kw" id="destoon_kw" type="text" class="search_i" value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech/><input type="text" id="destoon_select" class="search_m" value="{str_replace('玛卡','',$MODULE[$searchid][name])}" readonly onfocus="this.blur();" onclick="$('#search_module').fadeIn('fast');"/><input type="submit" value=" " class="search_s"/>
 		</div>
 	</div>
 	</form>

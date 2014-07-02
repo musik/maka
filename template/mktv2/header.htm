@@ -99,7 +99,7 @@ document.onselectstart=function(e){return false;};
 <div class="m"><div id="search_tips" style="display:none;"></div></div>
 <div class="m">
 	<div id="search_module" style="display:none;" onmouseout="Dh('search_module');" onmouseover="Ds('search_module');">
-	{loop $MODULE $m}{if $m[ismenu] && !$m[islink]}<a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{$m[name]}')">{$m[name]}</a>{/if}{/loop}
+	{loop $MODULE $m}{if $m[ismenu] && !$m[islink]}<a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{str_replace('玛卡','',$m[name])}')">{str_replace('玛卡','',$m[name])}</a>{/if}{/loop}
 	</div>
 </div>
             <div id="header" class="mod-spm" data-spm="1724188157">
