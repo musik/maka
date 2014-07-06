@@ -614,7 +614,7 @@
 .floor-fz-first-screen .mod-category .content {
 }
 .floor-fz-first-screen .mod-category .content .zone-cat-first {
-  padding-top: 46px;
+  padding-top: 0px;
 }
 .floor-fz-first-screen .mod-category-sub .content {
 	padding-top:56px;
@@ -3477,4 +3477,7 @@
   width: 250px;
   list-style: circle;
   list-style-position: inside;
+}
+.description{
+  padding: 0px 13px 0;  
 }
