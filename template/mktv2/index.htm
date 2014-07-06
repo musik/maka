@@ -36,8 +36,8 @@
                     <div class="main">
                       <div>{ad(14)}</div>
                       {php //template 'top-col','chip'}
-                      <div class="bottom-col">
-                        <!--{tag("moduleid=5&condition=level=1&pagesize=2&template=list-sell-pipe&lazy=$lazy")}--> 
+                      <div class="zhidao">
+    <!--{tag("moduleid=10&condition=status=3&pagesize=".$DT['page_know']."&order=itemid desc&target=_blank&length=34")}-->
                       </div>
                     </div>
                     <div class="extra">
@@ -56,7 +56,7 @@
 {php $mid = 5;}
 {loop $sellcats $i $ct}
 {if $ct[catname] != "其它"}
-{template 'box-layout','chip'}
+{php //template 'box-layout','chip'}
 {/if}
 {/loop}
 {template 'links','chip'}

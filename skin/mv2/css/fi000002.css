@@ -3465,3 +3465,16 @@
 .mod-food-common-floor .app-header h2 .san{
   margin-left: 3px;
 }
+.zhidao{
+  margin: 15px;
+}
+.zhidao ul{
+  margin-left: -20px;
+}
+.zhidao ul li{
+  float: left;
+  margin-left: 20px;
+  width: 250px;
+  list-style: circle;
+  list-style-position: inside;
+}
