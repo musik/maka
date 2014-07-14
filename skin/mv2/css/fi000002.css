@@ -606,6 +606,15 @@
 	width:189px;
 	border-left:1px solid #e2e2e2;
 }
+.floor-fz-first-screen .mod-category .headern {
+	height:10px;
+	position:absolute;
+	top:-10px;
+	left:-1px;
+	/*background:#fbfbfb url("cats_bg.png") no-repeat -1px -1px;*/
+	width:189px;
+	border-left:1px solid #e2e2e2;
+}
 .floor-fz-first-screen .mod-category-sub .header {
 	top:0px;
 	border-top:1px solid #e2e2e2;
@@ -3479,5 +3488,10 @@
   list-style-position: inside;
 }
 .description{
-  padding: 0px 13px 0;  
+  margin: 20px;
+  /*height: 144px;*/
+  /*overflow: hidden;*/
+}
+.description marquee{
+  height: 140px;
 }

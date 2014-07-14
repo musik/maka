@@ -130,5 +130,21 @@ document.onselectstart=function(e){return false;};
                                </div>
                         </div>
                     </div>
+                    <div class="ali-nav-6i-sub ali-nav-food-sub" data-channel="jiushuichayin">
+                        <div class="wrap">
+                            <div class="layout">
+                                <ul class="sub-nav-list">
+                                {php $mid = 5;}
+					{php $sellcats = get_maincat(0, $mid, 1);}
+					{loop $sellcats $i $c}
+<li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a></li>
+                                    {/loop}
+                                    <li class="fd-right">
+                                    <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=9d1cbe61a45c8137e1a7485e5078dac5f988c90bd19976426a913a18e31a5bd5">点此加入QQ群</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>

@@ -18,6 +18,7 @@
     <div class="zone-content fd-clr">
       <ul class="word5">
 					{loop $ccats $i $c}
+          {php if(in_array($c[linkurl],array('yaocai/','guoshu/'))) continue;}
 <li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a></li>
           {/loop}
       </ul>

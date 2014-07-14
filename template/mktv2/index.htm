@@ -15,8 +15,7 @@
                       <div class="wrap">
                         <!--start-->
                         <div class="mod-category mod-category-sub2 " id="page-top-category">
-                          <div class="description">
-                          {$DT[seo_description]}
+                          <div class="headern">
                             </div>
                           <div class="content">
                             {template 'zone-cat','chip'}
@@ -52,10 +51,12 @@
       </div>
 {template 'box-news','chip'}
 {php $mid = 5;}
+{php $sellcats = get_maincat(0, $mid, 1);}
 {loop $sellcats $i $ct}
 {if $ct[catname] != "其它"}
-{php //template 'box-layout','chip'}
+{template 'box-layout','chip'}
 {/if}
 {/loop}
+{template 'home-bottom','chip'}
 {template 'links','chip'}
 {template 'footer'}
