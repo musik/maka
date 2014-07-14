@@ -3487,11 +3487,8 @@
   list-style: circle;
   list-style-position: inside;
 }
-.description{
+.bottom-description{
   margin: 20px;
   /*height: 144px;*/
   /*overflow: hidden;*/
-}
-.description marquee{
-  height: 140px;
 }
