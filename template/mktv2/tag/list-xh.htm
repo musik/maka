@@ -1,0 +1,63 @@
+<div class="market_list">
+  <div class="list_show" id="data_container">
+    <ul class="list_tit">
+      <li class="list01">品名</li>
+      <li class="list02">规格</li>
+      <li class="list03">产地</li>
+      <li class="list04">供应商所在</li>
+      <li class="list06">价格/元</li>
+      <li class="list l-unit">单位</li>
+      <li class="list07">供货总量</li>
+      <li class="l-qq">QQ</li>
+      <li class="l-ali">旺旺</li>
+      <li class="l-date">更新日期</li>
+    </ul>
+    {loop $tags $k $t}
+    <ul class="market_list_con">
+      {if $t[pinming]}
+      <li class="list01">
+      <a target="_blank" href="{$t[linkurl]}">{$t[pinming]}</a>
+      </li>
+      <li class="list02">{$t[guige]}</li>
+      <li class="list03">{$t[chandi]}</li>
+      {else}
+      <li class="l-title">
+      <a target="_blank" href="{$t[linkurl]}">{$t[title]}</a>
+      </li>
+      {/if}
+      <li class="list04">
+      {area_pos($t[areaid])}
+      </li>
+      <li class="list06">
+		{if $t[unit] && $t[price]>0}
+			{round($t[price])}
+		{else}
+      <small>面议</small>
+		{/if}
+      </li>
+      <li class="list l-unit">
+      {php echo $t[unit] ? $t[unit] : "--"}
+      </li>
+      <li class="list07">
+      {if $t[amount]}
+      {$t[amount]}{$t[unit]}
+      {else}
+      --
+      {/if}
+      </li>
+      <li class="l-qq">
+        {if $t[qq] && $DT[im_qq]}{im_qq($t[qq])}{/if}
+      </li>
+      <li class="l-ali">
+        {if $t[ali] && $DT[im_ali]}{im_ali($t[ali])}{/if}
+      </li>
+      <li class="l-date">
+{timetodate($t[edittime], "Y-m-d")}
+      </li>
+    </ul>
+    {/loop}		
+  <div class="c_b">&nbsp;</div>
+{if $showpage && $pages}<div class="pages">{$pages}</div>{/if}
+  </div>
+</div>
+

@@ -1,0 +1,33 @@
+{php $CSS=array('market');}
+{template 'header'}
+<script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
+<div class="m">
+<div class="m_l_3 f_l">
+	<div class="left_boxx">		
+		<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
+    <div class="cat-profile">
+    <h1>{$catname}</h1>
+    <p>
+    {$seo_description} 
+    </p>
+    </div>
+		<form method="post">
+		{if $page == 1}{ad($moduleid,$catid,$kw,6)}{/if}
+		{if $tags}{template 'list-xh', 'tag'}{/if}
+		</form>
+		<br/>
+	</div>
+</div>
+<div class="m_n f_l">&nbsp;</div>
+<div class="m_r_3 f_l">
+	<div class="sponsor">{ad($moduleid,$catid,$kw,7)}</div>
+  {if $catname != "其它"}
+  <div class="box_head"><div><strong>{$catname}相关知识</strong></div></div>
+	<div class="box_body">
+      <!--{tag("moduleid=24&condition=status=3 and keyword like '%$catname%'&pagesize=10&template=related_news&target=_blank")}-->
+	</div>
+	<div class="b10">&nbsp;</div>
+  {/if}
+</div>
+</div>
+{template 'footer'}
