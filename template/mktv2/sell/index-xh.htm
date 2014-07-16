@@ -1,7 +1,7 @@
 {php $CSS=array('market');}
 {template 'header'}
 <div class="m">
-<div class="m_l_3 f_l">
+<div class="market_left">
 	<div class="left_boxx">
 		<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a>
 		&raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a>
@@ -25,8 +25,9 @@
 		{if $page == 1}{ad($moduleid,0,'',6)}{/if}	<!--{tag("moduleid=$moduleid&condition=status=3$dtype&areaid=$cityid&catid=$catid&pagesize=".$MOD[pagesize]."&page=$page&showpage=1&datetype=5&order=".$MOD[order]."&fields=".$MOD[fields]."&lazy=$lazy&template=list-xh")}-->
 	</div>
 </div>
-<div class="m_n f_l">&nbsp;</div>
-<div class="m_r_3 f_l">
+<div class="market_right">
+{template 'sidebar','sell'}
 </div>
+<div class="c_b"></div>
 </div>
 {template 'footer'}

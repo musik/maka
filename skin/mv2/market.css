@@ -26,7 +26,7 @@ a:hover{ text-decoration:underline}
 
 /*********************主要内容 框架***************************/
 .container{width:100%; float:left}
-.market_left{ float:left; width:750px;}
+.market_left{ float:left; width:735px;}
 .market_right{ float:right; width:235px;}
 
 
@@ -43,18 +43,18 @@ a:hover{ text-decoration:underline}
 
 
 /*******数据展示*******/
-.market_list{ width:750px; border:1px solid #f2f2f4;border-top:3px solid #458fce;margin-top:10px;}
+.market_list{ width:735px; border:1px solid #f2f2f4;border-top:3px solid #458fce;margin-top:10px;}
 .market_list .list_show a{ color:#37403f}
-.market_list .list_show{  width:750px;}
-.market_list .list_show ul{width:750px; float:left;border-bottom:1px solid #f2f2f4; color:#37403f}
+.market_list .list_show{  width:735px;}
+.market_list .list_show ul{width:735px; float:left;border-bottom:1px solid #f2f2f4; color:#37403f}
 .market_list .list_show ul li{ float:left; text-align:center; line-height:45px; height:45px; overflow:hidden }
 .market_list .list_show ul .list01{ width:80px;padding-left:5px;}
 .market_list .list_show ul .list02{ width:75px;}
 .market_list .list_show ul .list03{ width:70px;}
-.market_list .list_show ul .list04{ width:100px;position:relative; overflow:visible}
+.market_list .list_show ul .list04{ width:100px;}
 .market_list .list_show ul .list05{ width:100px;}
-.market_list .list_show ul .list06{ width:100px; position:relative; overflow:visible}
-.market_list .list_show ul .list{  position:relative; overflow:visible}
+.market_list .list_show ul .list06{ width:100px;}
+.market_list .list_show ul .list{}
 .market_list .list_show ul .l-unit{ width:30px;}
 .market_list .list_show ul .l-title{ width:230px;}
 .market_list .list_show ul .l-title a{ margin: 0 5px;}
@@ -103,7 +103,7 @@ a:hover{ text-decoration:underline}
 .market_list ul .list08 .smsCall{ background:url(../../Images/icon/icon_IMchaoshi_message.png) no-repeat center; width:53px; height:45px; cursor:pointer}
 /*鼠标移入*/
 .market_list .market_list_con li a{ color:#37403f}
-.market_list_con:hover{background-color:#fff3e7; color:#fd5d0f; cursor:pointer}
+.market_list_con:hover{background-color:#fff3e7; color:#fd5d0f; }
 .market_list_con:hover li{ color:#fd5d0f}
 .market_list_con:hover li a{ color:#fd5d0f}
 /*标题*/
@@ -124,7 +124,8 @@ a:hover{ text-decoration:underline}
 .market_btn a{ float:left; display:block; text-align:center;}
 .market_btn .btn_fbzy{ background-color:#90c364; color:#ffffff; font-weight:bolder; width:116px; height:35px; line-height:35px; font-size:14px;}
 .market_btn .btn_wtzh{ background-color:#6bc1fa; color:#ffffff; font-weight:bolder; width:114px; height:35px; line-height:35px; text-align:center; font-size:14px; margin-left:5px}
-.market_btn .btn_ggc{  width:235px;_width:232px; background-color:#fd832d; color:#ffffff; font-family:"微软雅黑", "宋体", "Arial Unicode MS", Verdana; font-size:19px; height:45px; margin-top:5px; line-height:45px; text-align:center; overflow:hidden}
+.market_btn a.btn_ggc{  width:235px;_width:232px; background-color:#fd832d; color:#ffffff; font-family:"微软雅黑", "宋体", "Arial Unicode MS", Verdana; font-size:19px; height:45px; margin-top:0px; line-height:45px; text-align:center; overflow:hidden}
+.market_btn a:hover{color: #eee;text-decoration: none;}
 
 /******客户信息*******/
 .div_client{ width:235px; float:left;}
@@ -314,8 +315,7 @@ a:hover{ text-decoration:underline}
 .market_trans .market_trans_right #market_trans_right{ float:left;height:13px;overflow:hidden;white-space:nowrap;width:210px;}
 
 
-/***************首页 钢厂直销 2014-04-21****************/
-.direct_search{ margin-top:10px;width:750px;border:1px solid #e4e6e5; height:43px; position:relative}
+.direct_search{ margin-top:10px;width:735px;border:1px solid #e4e6e5; height:43px; position:relative}
 
 .direct_search .title{ background:url(../../Images/icon/icon_arrow_right9.gif) no-repeat right #f5f7f9; width:100px; height:43px; float:left; font-size:14px; text-align:center; line-height:40px; font-weight:bold; position:relative}
 .direct_search .title .icon_new{ background:url(../../Images/icon/icon_new.gif); width:26px; height:21px; position:absolute;left:75px;top:-5px;}
@@ -369,3 +369,12 @@ a:hover{ text-decoration:underline}
 .exact_search .choose .moreOpen a:hover{ text-decoration:none}
 .defaultstyle{ color:#ccc;}
 
+.sheader{
+  line-height: 30px;
+}
+.sheader h3{
+  text-indent: 2px; 
+}
+.field{
+  padding: 2px;
+}

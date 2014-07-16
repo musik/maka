@@ -9,7 +9,7 @@ html{color:#000;overflow-y:scroll;background:#fff;}body,h1,h2,h3,h4,h5,h6,hr,p,b
 * @license MIT License
 *
 * */
-h1,h2,h3,h4{font-weight:700;}a:hover,a:active{color:#ff7300!important;}
+h1,h2,h3,h4{font-weight:700;}a:hover,a:active{color:#ff7300}
 .layout-space{margin-top:8px;}.layout-space .layout{margin-bottom:8px;}.layout-fixed{margin-bottom:0!important;}.grid-right{float:right!important;}
 .float-cancel{float:none!important;}.last-col{margin-right:0!important;padding-right:0!important;}.ms-yh{font-family:"\5FAE\8F6F\96C5\9ED1","\9ED1\4F53","\6587\6CC9\9A7F\6B63\9ED1\4F53","\534E\6587\7EC6\9ED1",STHeiti;font-weight:400;}
 a.a-img,a.a-mix{display:inline-block;font-size:0;line-height:0;}a.a-mix:hover,a.a-mix:active{text-decoration:none;}a.a-mix img{margin-bottom:2px;}a.a-mix span,a.a-mix .description{display:block;font-size:12px;line-height:1.5;}

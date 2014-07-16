@@ -1,0 +1,14 @@
+<div class="sheader">
+  <h3>快速发布信息</h3>
+ </div>
+<form action="/member/my.php" method="POST">
+  {php $fields = array('pinming'=>'品名','guige'=>'规格','chandi'=>'产地',);}
+  {loop $fields $name $label}
+  <div class="field">
+    <span class="f_red">*</span><label for="{$name}">{$label}</label>
+    <input id="{$name}" name="{$name}" />
+    </div>
+    {/loop}
+
+
+  </form>
