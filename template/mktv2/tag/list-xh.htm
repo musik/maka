@@ -2,7 +2,7 @@
   <div class="list_show" id="data_container">
     <ul class="list_tit">
       <li class="list01">品名</li>
-      <li class="list02">规格</li>
+      <li class="l-guige">规格</li>
       <li class="list03">产地</li>
       <li class="list04">供应商所在</li>
       <li class="list06">价格/元</li>
@@ -10,7 +10,7 @@
       <li class="list07">供货总量</li>
       <li class="l-qq">QQ</li>
       <li class="l-ali">旺旺</li>
-      <li class="l-date">更新日期</li>
+      <li class="l-contact">联系人</li>
     </ul>
     {loop $tags $k $t}
     <ul class="market_list_con">
@@ -18,7 +18,7 @@
       <li class="list01">
       <a target="_blank" href="{$t[linkurl]}">{$t[pinming]}</a>
       </li>
-      <li class="list02">{$t[guige]}</li>
+      <li class="l-guige">{$t[guige]}</li>
       <li class="list03">{$t[chandi]}</li>
       {else}
       <li class="l-title">
@@ -51,8 +51,8 @@
       <li class="l-ali">
         {if $t[ali] && $DT[im_ali]}{im_ali($t[ali])}{/if}
       </li>
-      <li class="l-date">
-{timetodate($t[edittime], "Y-m-d")}
+      <li class="l-contact">
+      <abbr title="{$t[company]},{$t[truename]},{$t[mobile]},更新于{timetodate($t[edittime], "Y-m-d")}">{$t[company]}</abbr>
       </li>
     </ul>
     {/loop}		

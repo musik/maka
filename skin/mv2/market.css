@@ -49,21 +49,22 @@ a:hover{ text-decoration:underline}
 .market_list .list_show ul{width:735px; float:left;border-bottom:1px solid #f2f2f4; color:#37403f}
 .market_list .list_show ul li{ float:left; text-align:center; line-height:45px; height:45px; overflow:hidden }
 .market_list .list_show ul .list01{ width:80px;padding-left:5px;}
-.market_list .list_show ul .list02{ width:75px;}
+.market_list .list_show ul .l-guige{ width:60px;}
 .market_list .list_show ul .list03{ width:70px;}
+.market_list .list_show ul .l-title{ width:215px;}
+.market_list .list_show ul .l-title a{ margin: 0 5px;}
 .market_list .list_show ul .list04{ width:100px;}
 .market_list .list_show ul .list05{ width:100px;}
 .market_list .list_show ul .list06{ width:100px;}
 .market_list .list_show ul .list{}
 .market_list .list_show ul .l-unit{ width:30px;}
-.market_list .list_show ul .l-title{ width:230px;}
-.market_list .list_show ul .l-title a{ margin: 0 5px;}
 .market_list .list_show ul .list07{ width:50px;}
 .market_list .list_show ul .l-ali{ width:45px;}
 .market_list .list_show ul .l-ali img{margin-top: 14px;}
 .market_list .list_show ul .l-qq{ width:40px;}
 .market_list .list_show ul .l-qq img{margin-top: 14px;}
 .market_list .list_show ul .l-date{ width:120px;}
+.market_list .list_show ul .l-contact{ width:116px;margin-right: 3px;}
 .market_list .list_show .market_list_con .list06{font-family:Constantia; color:#fe6720; font-size:22px}
 /*分机号*/
 .market_list .list_show ul .list09 .font_phone{ float:left; width:180px; text-align:center;}
