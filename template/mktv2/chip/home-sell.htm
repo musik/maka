@@ -1,0 +1,32 @@
+{php $moduleid = 5}
+{php $MOD = cache_read('module-'.$moduleid.'.php');}
+<div class="m">
+  <div class="market_left">
+    <div class="left_boxx">
+		<!--{tag("moduleid=$moduleid&condition=status=3&pagesize=".$MOD[pagesize]."&datetype=5&order=".$MOD[order]."&fields=".$MOD[fields]."&lazy=$lazy&template=list-xh")}-->
+    </div>
+  </div>
+  <div class="market_right">
+    <div class="b10"></div>
+    {template 'user','chip'}
+    <div class="sheader header-top">
+      最新资料
+    </div>
+    <div class="scon">
+      <!--{tag("moduleid=15&condition=status=3&pagesize=".$DT['page_down']."&order=itemid desc&target=_blank&length=34")}-->
+    </div>
+    <div class="sheader">
+      最新招商
+    </div>
+    <div class="scon">
+      <!--{tag("moduleid=22&condition=status=3&pagesize=".$DT['page_trade']."&order=itemid desc&target=_blank&length=34")}-->
+    </div>
+    <div class="sheader">
+      最新问答
+    </div>
+    <div class="scon">
+      <!--{tag("moduleid=10&condition=status=3&pagesize=".$DT['page_know']."&order=itemid desc&target=_blank&length=34")}-->
+    </div>
+  </div>
+</div>
+<div class="c_b"></div>

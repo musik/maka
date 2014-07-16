@@ -1,54 +1,10 @@
 {php $TJS=array('home');}
+{php $CSS=array('market');}
 {template 'header'}
 <div id="box_doc" class="cell-page-main">
   <div class="cell-page-grids-main">
     <div class="cell-page-content crazy-box-enable-layout dcms-crazy-box-h1190">
-      <!-- layout 通栏 -->
-      <div style="margin-bottom:0" class="crazy-box-layout layout cell-layout layout-col">
-        <div class="crazy-box-grid grid crazy-box-enable-row">
-          <div class="crazy-box-row cell-row">
-            <div class="crazy-box-box box-100 crazy-box-enable-module">
-              <div class="crazy-box-module cell-module-1" data-spm="1997448441">
-                <div class="floor-fz-first-screen floor-food-first-screen" id="floor-food-first-screen">
-                  <div class="floor-content">
-                    <div class="sub">
-                      <div class="wrap">
-                        <!--start-->
-                        <div class="mod-category mod-category-sub2 " id="page-top-category">
-                          <div class="headern">
-                            </div>
-                          <div class="content">
-                            {template 'zone-cat','chip'}
-                          </div>
-                          <div class="footer">
-                          </div>
-                          <div class="line-float">
-                          </div>
-                          <div class="float-cat" id="float-cat-panel">
-                          </div>
-                        </div>
-                        <!--end-->
-                      </div>
-                    </div>
-                    <div class="main">
-                      <div>{ad(14)}</div>
-                      {php //template 'top-col','chip'}
-                      <div class="zhidao">
-    <!--{tag("moduleid=10&condition=status=3&pagesize=".$DT['page_know']."&order=itemid desc&target=_blank&length=34")}-->
-                      </div>
-                    </div>
-                    <div class="extra">
-                      <div class="wrap">
-                          {template 'sells','chip'}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {template 'home-sell','chip'}
 {template 'box-news','chip'}
 {php $mid = 5;}
 {php $sellcats = get_maincat(0, $mid, 1);}

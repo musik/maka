@@ -1,5 +1,5 @@
 <script type="text/javascript">var user_auth = get_cookie('auth');</script>
-<div class="user" style="height:180px;">
+<div class="user">
 	{if defined('TOHTML')}
 	<script type="text/javascript">document.write(user_auth ? '<div>' : '<div style="display:none;">');</script>
 	{else}
@@ -7,24 +7,12 @@
 	{/if}
 		<div class="user_wel">您好，欢迎回来</div>
 		<div class="user_do">
-		<table cellpadding="0" cellspacing="0" width="100%">
-		<tr>
-		<td><img src="{$MODULE[2][linkurl]}image/ico_edit.gif" align="absmiddle"/> <a href="{$MODULE[2][linkurl]}{$DT[file_my]}">发布供求信息</a></td>
-		<td><img src="{$MODULE[2][linkurl]}image/ico_product.gif" align="absmiddle"/> <a href="{$EXT[spread_url]}">推广企业产品</a></td>
-		</tr>
-		<tr>
-		<td><img src="{$MODULE[2][linkurl]}image/ico_homepage.gif" align="absmiddle"/> <a href="{$MODULE[2][linkurl]}home.php">管理企业商铺</a></td>
-		<td><img src="{$MODULE[2][linkurl]}image/ico_message.gif" align="absmiddle"/> <a href="{$MODULE[2][linkurl]}message.php">查看站内留言</a></td>
-		</tr>
-		<tr>
-		<td><img src="{$MODULE[2][linkurl]}image/ico_trade.gif" align="absmiddle"/> <a href="{$MODULE[2][linkurl]}trade.php">管理买卖交易</a></td>
-		<td><img src="{$MODULE[2][linkurl]}image/ico_record.gif" align="absmiddle"/> <a href="{$MODULE[2][linkurl]}record.php">查看{$DT[money_name]}流水</a></td>
-		</tr>
-		<tr>
-		<td><img src="{$MODULE[2][linkurl]}image/ico_profile.gif" align="absmiddle"/> <a href="{$MODULE[2][linkurl]}edit.php?tab=2">完善企业资料</a></td>
-		<td><img src="{$MODULE[2][linkurl]}image/ico_home.gif" align="absmiddle"/> <a href="{$MODULE[2][linkurl]}">进入商务中心</a></td>
-		</tr>
-		</table>
+      <ul>
+		<li> <a href="{$MODULE[2][linkurl]}{$DT[file_my]}">发布供求信息</a></li>
+		<li> <a class="b" href="{$MODULE[2][linkurl]}home.php">管理企业商铺</a></li>
+		<li> <a href="{$MODULE[2][linkurl]}edit.php?tab=2">完善企业资料</a></li>
+		<li> <a class="b" href="{$MODULE[2][linkurl]}">进入商务中心</a></li>
+    </ul>
 		</div>
 	</div>
 	{if defined('TOHTML')}
@@ -53,7 +41,6 @@
 		</tr>
 		</table>
 		</div>
-		<div class="user_reg"><a href="{$MODULE[2][linkurl]}{$DT[file_register]}"><img src="{DT_SKIN}image/user_reg.gif" width="260" height="26" alt="还不是会员，立即免费注册"/></a></div>
+		<div class="user_reg"><a href="{$MODULE[2][linkurl]}{$DT[file_register]}" class="lbtn">还不是会员，立即免费注册</a></div>
 	</div>
 </div>
-<div class="user_foot">&nbsp;</div>

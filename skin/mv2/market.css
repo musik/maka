@@ -124,7 +124,7 @@ a:hover{ text-decoration:underline}
 .market_btn a{ float:left; display:block; text-align:center;}
 .market_btn .btn_fbzy{ background-color:#90c364; color:#ffffff; font-weight:bolder; width:116px; height:35px; line-height:35px; font-size:14px;}
 .market_btn .btn_wtzh{ background-color:#6bc1fa; color:#ffffff; font-weight:bolder; width:114px; height:35px; line-height:35px; text-align:center; font-size:14px; margin-left:5px}
-.market_btn a.btn_ggc{  width:235px;_width:232px; background-color:#fd832d; color:#ffffff; font-family:"微软雅黑", "宋体", "Arial Unicode MS", Verdana; font-size:19px; height:45px; margin-top:0px; line-height:45px; text-align:center; overflow:hidden}
+.market_btn a.btn_ggc{  width:235px;_width:232px; background-color:#fd832d; color:#ffffff; font-family:"微软雅黑", "宋体", "Arial Unicode MS", Verdana; font-size:19px; height:45px; margin-top:5px; line-height:45px; text-align:center; overflow:hidden}
 .market_btn a:hover{color: #eee;text-decoration: none;}
 
 /******客户信息*******/
@@ -370,10 +370,21 @@ a:hover{ text-decoration:underline}
 .defaultstyle{ color:#ccc;}
 
 .sheader{
-  line-height: 30px;
+  line-height: 34px;
+  height: 34px;
+  font-size: 14px;
+  margin-top: 10px;
+  border-bottom: 1px solid #def;
+  text-indent: 10px; 
 }
 .sheader h3{
   text-indent: 2px; 
+}
+.scon{
+  padding: 10px;
+}
+.scon li{
+  line-height: 24px;
 }
 .field{
   padding: 2px;
