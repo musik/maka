@@ -2,7 +2,7 @@
 {template 'header'}
 <script type="text/javascript">var sh = '{$MOD[linkurl]}search.php?catid={$catid}';</script>
 <div class="m">
-<div class="m_l_3 f_l">
+<div class="market_left">
 	<div class="left_boxx">		
 		<div class="pos">当前位置: <a href="{$MODULE[1][linkurl]}">首页</a> &raquo; <a href="{$MOD[linkurl]}">{$MOD[name]}</a> &raquo; {cat_pos($CAT, ' &raquo; ')}</div>
     <div class="cat-profile">
@@ -18,9 +18,11 @@
 		<br/>
 	</div>
 </div>
-<div class="m_n f_l">&nbsp;</div>
-<div class="m_r_3 f_l">
+<div class="market_right">
+{template 'sidebar','sell'}
+	<div class="c_b b10">&nbsp;</div>
 	<div class="sponsor">{ad($moduleid,$catid,$kw,7)}</div>
+	<div class="b10">&nbsp;</div>
   {if $catname != "其它"}
   <div class="box_head"><div><strong>{$catname}相关知识</strong></div></div>
 	<div class="box_body">
