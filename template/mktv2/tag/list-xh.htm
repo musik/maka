@@ -52,7 +52,7 @@
         {if $t[ali] && $DT[im_ali]}{im_ali($t[ali])}{/if}
       </li>
       <li class="l-contact">
-      <abbr title="{$t[company]},{$t[truename]},{$t[mobile]},更新于{timetodate($t[edittime], "Y-m-d")}">{$t[company]}</abbr>
+      <abbr title="{$t[company]},{if $t[telephone]}{$t[telephone]}{else}{$t[mobile]}{/if},更新于{timetodate($t[edittime], "Y-m-d")}">{$t[company]}</abbr>
       </li>
     </ul>
     {/loop}		
