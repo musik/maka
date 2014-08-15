@@ -4,13 +4,13 @@
 <div id="box_doc" class="cell-page-main">
   <div class="cell-page-grids-main">
     <div class="cell-page-content crazy-box-enable-layout dcms-crazy-box-h1190">
-      {template 'home-sell','chip'}
+      {template 'home-f1','chip'}
 {template 'box-news','chip'}
 {php $mid = 5;}
 {php $sellcats = get_maincat(0, $mid, 1);}
 {loop $sellcats $i $ct}
 {if $ct[catname] != "其它"}
-{template 'box-layout','chip'}
+{php //template 'box-layout','chip'}
 {/if}
 {/loop}
 {template 'home-bottom','chip'}
