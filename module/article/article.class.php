@@ -88,6 +88,8 @@ class article {
   }
   function nice_description($str){
     $str = strip_tags($str);
+    $str = dsubstr($str,1200,'..');
+    $str = str_replace("玛卡","<i></i>",$str);
     //$str = mb_substr($str,0,900);
     return $str; 
   }

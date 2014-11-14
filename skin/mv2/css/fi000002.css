@@ -3514,3 +3514,7 @@
   display: block;
   margin: 10px 0;
 }
+.h-entry i:after{
+  content: "玛卡";
+  font-style: normal;
+}

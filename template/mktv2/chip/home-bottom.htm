@@ -25,7 +25,7 @@ $result = $article->get_blogs();
 <div class="h-entry">
   <h4><a target="_blank" href="/news/{$item[linkurl]}">{$item[title]}</a></h4>
   <div class="content">
-    {dsubstr($item[description],1200,'..')}
+    {$item[description]}
     <a class="readmore" target="_blank" rel="nofollow" href="/news/{$item[linkurl]}">阅读全文</a>
     </div>
   </div>
