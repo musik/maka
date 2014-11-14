@@ -3,7 +3,7 @@
 	[Destoon B2B System] Copyright (c) 2008-2013 Destoon.COM
 	This is NOT a freeware, use is subject to license.txt
 */
-defined('IN_DESTOON') or exit('Access Denied');
+defined('DT_ADMIN') or exit('Access Denied');
 $menus = array (
     array('标签向导', '?file='.$file),
     array('重建缓存', '?file='.$file.'&action=cache'),
@@ -91,6 +91,12 @@ switch($action) {
 			$tag_code = str_replace('")', '", -1)', $tag_code);
 		}
 		$tag_code .= ';';
+		if(substr($tag_code, 0, 5) != 'tag("') msg('标签内容包含不安全写法，禁止在线预览');
+		if(substr($tag_code, -7) != '", -1);') msg('标签内容包含不安全写法，禁止在线预览');
+		$tag_safe = substr($tag_code, 5, -7);
+		foreach(array('(', '`', ',', ';') as $v) {
+			if(strpos($tag_safe, $v) !== false) msg('标签内容包含不安全写法，禁止在线预览');
+		}
 		ob_start();
 		eval($tag_code);
 		$contents = ob_get_contents();

@@ -44,6 +44,7 @@ if($submit) {
 	$post['inviter'] = $user['inviter'];
 	if($post['vmobile']) $post['mobile'] = $user['mobile'];
 	if($post['vtruename']) $post['truename'] = $user['truename'];
+	$post = daddslashes(dstripslashes($post));
 	if($MFD) fields_check($post_fields, $MFD);
 	if($CFD) fields_check($post_fields, $CFD);
 	if($do->edit($post)) {

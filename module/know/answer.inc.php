@@ -127,7 +127,8 @@ switch($action) {
 						credit_add($a['username'], $MOD['credit_best']);
 						credit_record($a['username'], $MOD['credit_best'], 'system', lang($L['record_best'], array($MODULE[$moduleid]['name'])), 'ID:'.$itemid);
 					}
-					if($credit > 1 && $credit <= $_credit) {
+					$credit = intval($credit);
+					if(in_array($credit, $CREDITS) && $credit > 1 && $credit <= $_credit) {
 						credit_add($_username, -$credit);
 						credit_record($_username, -$credit, 'system', lang($L['record_thank'], array($MODULE[$moduleid]['name'])), 'ID:'.$itemid);
 						credit_add($a['username'], $credit);
@@ -140,7 +141,8 @@ switch($action) {
 		dalert('', $linkurl);
 	break;
 	case 'raise':
-		if($credit < 1) dalert($L['select_credit'], 'goback');
+		$credit = intval($credit);
+		if($credit < 1 || !in_array($credit, $CREDITS)) dalert($L['select_credit'], 'goback');
 		if($credit > $_credit) dalert($L['lack_credit'], 'goback');
 		$could_raise = $could_admin;
 		if($item['process'] != 1) $could_raise = false;

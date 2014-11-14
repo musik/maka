@@ -38,7 +38,7 @@ switch($job) {
 	case 'mobile':
 		$value = trim($value);
 		if(!is_mobile($value)) exit($L['member_mobile_null']);
-		if($do->email_exists($value)) exit($L['member_mobile_reg']);
+		if($do->mobile_exists($value)) exit($L['member_mobile_reg']);
 	break;
 	case 'mobilecode':
 		$value = trim($value);
