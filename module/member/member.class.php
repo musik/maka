@@ -110,12 +110,20 @@ class member {
 		return true;
 	}
 
+	function is_clean($string) {
+		$chars = array("\\", "'",'"','/','<','>',"\r","\t","\n");
+		foreach($chars as $v) {
+			if(strpos($string, $v) !== false) return false;
+		}
+		return true;
+	}
+
 	function is_member($member) {
 		global $L, $AREA;
 		if(!is_array($member)) return false;
 		if(!$this->is_passport($member['passport'])) return false;
 		if(!$member['groupid']) return $this->_($L['member_groupid_null']);
-		if(empty($member['truename'])) return $this->_($L['member_truename_null']);
+		if(strlen($member['truename']) < 2 || !$this->is_clean($member['truename'])) return $this->_($L['member_truename_null']);
 		if(!$this->is_email(trim($member['email']))) return false;
 		if($this->email_exists(trim($member['email']))) return $this->_($L['member_email_reg']);
 		$areaid = intval($member['areaid']);
@@ -123,10 +131,10 @@ class member {
 		$groupid = $this->userid ? $member['groupid'] : $member['regid'];
 		if($groupid > 5) {
 			if(strlen($member['company']) < 2) return $this->_($L['member_company_null']);
-			if(preg_match("/[0-9]+/", $member['company'])) return $this->_($L['member_company_bad']);
+			if(preg_match("/[0-9]+/", $member['company']) || !$this->is_clean($member['company'])) return $this->_($L['member_company_bad']);
 			if($this->company_exists($member['company'])) return $this->_($L['member_company_reg']);
 			if(strlen($member['type']) < 2) return $this->_($L['member_type_null']);
-			if(strlen($member['telephone']) < 6) return $this->_($L['member_telephone_null']);
+			if(!preg_match("/^[0-9\-]{6,}$/", $member['telephone'])) return $this->_($L['member_telephone_null']);
 		}
 		if($this->userid) {
 			if($member['password'] && !$this->is_password($member['password'], $member['cpassword'])) return false;
@@ -155,6 +163,12 @@ class member {
 		is_email($member['msn']) or $member['msn'] = '';
 		$member['qq'] = isset($member['qq']) ? trim($member['qq']) : '';
 		is_numeric($member['qq']) or $member['qq'] = '';
+		$member['ali'] = isset($member['ali']) ? trim($member['ali']) : '';
+		if(!$this->is_clean($member['ali'])) $member['ali'] = '';
+		$member['skype'] = isset($member['skype']) ? trim($member['skype']) : '';
+		if(!$this->is_clean($member['skype'])) $member['skype'] = '';
+		$member['address'] = isset($member['address']) ? trim($member['address']) : '';
+		if(!$this->is_clean($member['address'])) $member['address'] = '';
 		$member['postcode'] = isset($member['postcode']) ? trim($member['postcode']) : '';
 		is_numeric($member['postcode']) or $member['postcode'] = '';
 		$member['mode'] = (isset($member['mode']) && is_array($member['mode']) && $member['mode']) ? implode(',', $member['mode']) : '';
@@ -342,7 +356,7 @@ class member {
 			$LOCK = cache_read($DT_IP.'.php', 'ban');
 			if($LOCK) {
 				if($DT_TIME - $LOCK['time'] < $MOD['lock_hour']*3600) {
-					if($LOCK['times'] >= $MOD['login_times']) return $this->_(lang($L['member_login_ban'], array($MOD['login_times'], $MOD['login_times'])));
+					if($LOCK['times'] >= $MOD['login_times']) return $this->_(lang($L['member_login_ban'], array($MOD['login_times'], $MOD['login_hour'])));
 				} else {
 					$LOCK = array();
 					cache_delete($DT_IP.'.php', 'ban');

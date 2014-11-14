@@ -21,6 +21,7 @@ class message {
 		if(!is_array($message)) return false;
 		if(empty($message['title'])) return $this->_($L['pass_title']);
 		if(empty($message['content'])) return $this->_($L['pass_content']);
+		if(preg_match("/(embed|object)/i", $message['content'])) return false;
 		return true;
 	}
 

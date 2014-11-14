@@ -17,7 +17,7 @@ $MQG = get_magic_quotes_gpc();
 foreach(array('_POST', '_GET') as $__R) {
 	if($$__R) { 
 		foreach($$__R as $__k => $__v) {
-			if(substr($__k, 0, 1) == '_') unset($$__R);
+			if(substr($__k, 0, 1) == '_') if($__R == '_POST') { unset($_POST[$__k]); } else { unset($_GET[$__k]); }
 			if(isset($$__k) && $$__k == $__v) unset($$__k);
 		}
 	}
@@ -44,6 +44,7 @@ $L = array();
 include DT_ROOT.'/lang/'.DT_LANG.'/lang.inc.php';
 require DT_ROOT.'/version.inc.php';
 require DT_ROOT.'/include/global.func.php';
+require DT_ROOT.'/include/safe.func.php';
 require DT_ROOT.'/include/tag.func.php';
 require DT_ROOT.'/api/im.func.php';
 require DT_ROOT.'/api/extend.func.php';

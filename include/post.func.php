@@ -352,7 +352,7 @@ function level_select($name, $title = '', $level = 0, $extend = '') {
 }
 
 function is_url($url) {
-	return preg_match("/^(http|https)\:\/\/[a-z0-9]{1,}\.[a-z0-9\/\.\#\&\?\;\,\=\%]{2,}$/", $url);
+	return preg_match("/^(http|https)\:\/\/[A-Za-z0-9_\-\/\.\#\&\?\;\,\=\%]{4,}$/", $url);
 }
 
 function is_email($email) {
@@ -768,5 +768,12 @@ function reload_question() {
 function sync_weibo($site, $moduleid, $itemid) {
 	$file = $site == 'qzone' ? 'qq/qzone.php' : $site.'/post.php';
 	return 'document.write(\'<img src="'.DT_PATH.'api/oauth/'.$file.'?auth='.encrypt($moduleid.'-'.$itemid).'" width="1" height="1"/>\');';
+}
+
+//TEMP FIX
+if($submit) {
+	if(isset($post['thumb']) && !is_url($post['thumb'])) $post['thumb'] = '';
+	if(isset($post['thumb1']) && !is_url($post['thumb1'])) $post['thumb1'] = '';
+	if(isset($post['thumb2']) && !is_url($post['thumb2'])) $post['thumb2'] = '';
 }
 ?>
