@@ -69,6 +69,28 @@ class article {
 		$content_table = content_table($this->moduleid, $this->itemid, $this->split, $this->table_data);
         return $this->db->get_one("SELECT * FROM {$this->table} a,{$content_table} c WHERE a.itemid=c.itemid and a.itemid=$this->itemid");
 	}
+	function get_blogs($condition = 'status=3', $limit =10,$order = 'addtime DESC', $cache = '') {
+    global $DT_PRE;
+    $table = $DT_PRE."article".'_'.$this->moduleid;
+		$content_table = content_table($this->moduleid, $this->itemid, $this->split, $this->table_data);
+		$result = $this->db->query("SELECT * FROM {$table} a,{$content_table} c WHERE a.itemid = c.itemid and $condition ORDER BY $order LIMIT $limit", $cache);
+		while($r = $this->db->fetch_array($result)) {
+			$r['adddate'] = timetodate($r['addtime'], 5);
+			$r['editdate'] = timetodate($r['edittime'], 5);
+			$r['alt'] = $r['title'];
+			$r['title'] = set_style($r['title'], $r['style']);
+			if(!$r['islink']) $r['linkurl'] = $MOD['linkurl'].$r['linkurl'];
+			$catids[$r['catid']] = $r['catid'];
+      $r['description'] =$this->nice_description($r['content']);
+			$lists[] = $r;
+		}
+    return $lists;
+  }
+  function nice_description($str){
+    $str = strip_tags($str);
+    //$str = mb_substr($str,0,900);
+    return $str; 
+  }
 
 	function get_list($condition = 'status=3', $order = 'addtime DESC', $cache = '') {
 		global $MOD, $pages, $page, $pagesize, $offset, $items, $sum;

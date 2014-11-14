@@ -14,6 +14,23 @@
             <div class="fd-clr">
               <div class="bottom-description">
                 {$DT[seo_description]}
+                <h3>最近更新</h3>
+<?php
+include DT_ROOT."/module/article/article.class.php";
+$article = new article(21);
+$result = $article->get_blogs();
+?>
+{if $result}
+{loop $result $i $item}
+<div class="h-entry">
+  <h4><a target="_blank" href="/news/{$item[linkurl]}">{$item[title]}</a></h4>
+  <div class="content">
+    {dsubstr($item[description],1200,'..')}
+    <a class="readmore" target="_blank" rel="nofollow" href="/news/{$item[linkurl]}">阅读全文</a>
+    </div>
+  </div>
+{/loop}
+{/if}
               </div>
             </div>
           </div>

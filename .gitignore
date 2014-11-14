@@ -17,3 +17,5 @@ session
 pmt
 sitemaps.xml
 /maka
+Gemfile.lock
+/log
